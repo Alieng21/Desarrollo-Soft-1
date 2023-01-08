@@ -9,7 +9,7 @@ create table TblCategorias(
 
 create table TblLibros(
 	id_libro int primary key identity,
-	id_categoria int foreign key references TblCategoria(id_categoria) not null,
+	id_categoria int foreign key references TblCategorias(id_categoria) not null,
 	nombre_libro varchar(50) not null,
 	autor_libro varchar(50) not null,
 	editorial_libro varchar(50) not null,
@@ -152,8 +152,8 @@ create procedure Editar_TblLibros
 		@copias_libro int,
 		@ISBN char(13)
 	as
-		update TblLibros set id_categoria = @id_categoria, nombre_libro = @nombre_libro, autor_libro = @autor_libro, editorial_libro = @editorial_libro, 
-		copias_libro = @copias_libro, ISBN = @ISBN where id_libro = @id_libro
+		update TblLibros set id_categoria = @id_categoria, nombre_libro = @nombre_libro, autor_libro = @autor_libro, 
+		editorial_libro = @editorial_libro, copias_libro = @copias_libro, ISBN = @ISBN where id_libro = @id_libro
 
 go
 
