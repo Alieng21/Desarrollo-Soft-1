@@ -2,8 +2,14 @@ use bdbiblioteca
 
 /*Tablas*/
 
+create table TblCategorias(
+		id_categoria int primary key identity,
+		categoria varchar(50) not null
+)
+
 create table TblLibros(
 	id_libro int primary key identity,
+	id_categoria int foreign key references TblCategorias(id_categoria) not null,
 	nombre_libro varchar(50) not null,
 	autor_libro varchar(50) not null,
 	editorial_libro varchar(50) not null,
@@ -62,13 +68,14 @@ go
 -- INSERTAR --
 
 create procedure Insertar_TblLibros 
+		@id_categoria int,
 		@nombre_libro varchar(50),
 		@autor_libro varchar(50),
 		@editorial_libro varchar(50),
 		@copias_libro int,
 		@ISBN char(13)
 	as
-		insert into TblLibros values(@nombre_libro,@autor_libro,@editorial_libro,@copias_libro,@ISBN)
+		insert into TblLibros values(@id_categoria,@nombre_libro,@autor_libro,@editorial_libro,@copias_libro,@ISBN)
 
 go
 
@@ -127,19 +134,26 @@ create procedure Insertar_TblDevoluciones
 
 go
 
+create procedure Insertar_TblCategorias
+		@categoria varchar(50)
+	as
+		insert into TblCategorias values (@categoria)
+
+go
 
 -- EDITAR --
 
 create procedure Editar_TblLibros
 		@id_libro int,
+		@id_categoria int,
 		@nombre_libro varchar(50),
 		@autor_libro varchar(50),
 		@editorial_libro varchar(50),
 		@copias_libro int,
 		@ISBN char(13)
 	as
-		update TblLibros set nombre_libro = @nombre_libro, autor_libro = @autor_libro, editorial_libro = @editorial_libro, 
-		copias_libro = @copias_libro, ISBN = @ISBN where id_libro = @id_libro
+		update TblLibros set id_categoria = @id_categoria, nombre_libro = @nombre_libro, autor_libro = @autor_libro, 
+		editorial_libro = @editorial_libro, copias_libro = @copias_libro, ISBN = @ISBN where id_libro = @id_libro
 
 go
 
@@ -208,6 +222,14 @@ create procedure Editar_TblDevoluciones
 
 go
 
+create procedure Editar_TblCategorias
+		@id_categoria int,
+		@categoria varchar(50)
+	as
+		update TblCategorias set id_categoria = @id_categoria, categoria = @categoria
+
+go
+
 -- ELIMINAR --
 
 create procedure Eliminar_TblLibros
@@ -257,6 +279,11 @@ create procedure Eliminar_TblDevoluciones
 	as
 		delete from TblDevoluciones where id_devolucion = @id_devolucion
 
+go
 
-/*Vistas*/
+create procedure Eliminar_TblCategorias
+		@id_categoria int
+	as
+		delete from TblCategorias where id_categoria = @id_categoria
 
+go
