@@ -68,13 +68,14 @@ go
 -- INSERTAR --
 
 create procedure Insertar_TblLibros 
+		@id_categoria int,
 		@nombre_libro varchar(50),
 		@autor_libro varchar(50),
 		@editorial_libro varchar(50),
 		@copias_libro int,
 		@ISBN char(13)
 	as
-		insert into TblLibros values(@nombre_libro,@autor_libro,@editorial_libro,@copias_libro,@ISBN)
+		insert into TblLibros values(@id_categoria,@nombre_libro,@autor_libro,@editorial_libro,@copias_libro,@ISBN)
 
 go
 
@@ -144,13 +145,14 @@ go
 
 create procedure Editar_TblLibros
 		@id_libro int,
+		@id_categoria int,
 		@nombre_libro varchar(50),
 		@autor_libro varchar(50),
 		@editorial_libro varchar(50),
 		@copias_libro int,
 		@ISBN char(13)
 	as
-		update TblLibros set nombre_libro = @nombre_libro, autor_libro = @autor_libro, editorial_libro = @editorial_libro, 
+		update TblLibros set id_categoria = @id_categoria, nombre_libro = @nombre_libro, autor_libro = @autor_libro, editorial_libro = @editorial_libro, 
 		copias_libro = @copias_libro, ISBN = @ISBN where id_libro = @id_libro
 
 go
