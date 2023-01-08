@@ -6,5 +6,7 @@ Aliany González ID 1107613
 Diego Valentim
 Albert Sanfle
 
-#El trabajo final consiste en el manejo de inventario de la bibloteca "nombre de la bibloteca", y muchas cosas mas.
+El trabajo final consiste en el manejo de inventario de la bibloteca "nombre de la bibloteca", y muchas cosas mas.
+
+Hice un cambio
 
