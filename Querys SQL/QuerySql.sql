@@ -257,6 +257,4 @@ create procedure Eliminar_TblDevoluciones
 	as
 		delete from TblDevoluciones where id_devolucion = @id_devolucion
 
-
-/*Vistas*/
-
+go
