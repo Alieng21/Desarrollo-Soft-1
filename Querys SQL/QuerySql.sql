@@ -54,3 +54,41 @@ create table TblDevoluciones(
 		id_estado int foreign key references TblEstados(id_estado) not null,
 		fecha_devolucion datetime not null
 )
+
+go
+/*Procedures*/
+
+create procedure Insertar_TblLibros 
+		@nombre_libro varchar(50),
+		@autor_libro varchar(50),
+		@editorial_libro varchar(50),
+		@copias_libro int,
+		@ISBN char(13)
+	as
+		insert into TblLibros values(@nombre_libro,@autor_libro,@editorial_libro,@copias_libro,@ISBN)
+
+go
+
+create procedure Insertar_TblMiembros
+		@nombre_miembro varchar(50),
+		@apellido_miembro varchar(50),
+		@identificacion_miembro char(11),
+		@email_miembro varchar(50),
+		@telefono_miembro char(10),
+		@direccion_miembro varchar(100)
+	as
+		insert into TblMiembros values (@nombre_miembro,@apellido_miembro,@identificacion_miembro,@email_miembro,@telefono_miembro,@direccion_miembro)
+
+go
+
+create procedure Insertar_TblUsuarios
+		@id_miembro int,
+		@id_rol int,
+		@nombre_usuario varchar(25),
+		@clave_usuario varchar(50)
+	as
+		insert into	TblUsuarios values (@id_miembro,@id_rol,@nombre_usuario,@clave_usuario)
+
+go
+
+c
