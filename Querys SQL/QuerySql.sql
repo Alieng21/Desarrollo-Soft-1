@@ -43,4 +43,14 @@ create table TblPrestamos(
 		fecha_limite datetime not null
 )
 
-create table T
+create table TblEstados(
+		id_estado int primary key identity,
+		estado varchar(50) not null
+)
+
+create table TblDevoluciones(
+		id_devoluciones int identity primary key,
+		id_prestamo int foreign key references TblPrestamos(id_prestamo) not null,
+		id_estado int foreign key references TblEstados(id_estado) not null,
+		fecha_devolucion datetime not null
+)
