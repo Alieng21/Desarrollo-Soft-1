@@ -2,8 +2,14 @@ use bdbiblioteca
 
 /*Tablas*/
 
+create table TblCategorias(
+		id_categoria int primary key identity,
+		categoria varchar(50) not null
+)
+
 create table TblLibros(
 	id_libro int primary key identity,
+	id_categoria int foreign key references TblCategoria(id_categoria) not null,
 	nombre_libro varchar(50) not null,
 	autor_libro varchar(50) not null,
 	editorial_libro varchar(50) not null,
@@ -127,6 +133,12 @@ create procedure Insertar_TblDevoluciones
 
 go
 
+create procedure Insertar_TblCategorias
+		@categoria varchar(50)
+	as
+		insert into TblCategorias values (@categoria)
+
+go
 
 -- EDITAR --
 
@@ -208,6 +220,14 @@ create procedure Editar_TblDevoluciones
 
 go
 
+create procedure Editar_TblCategorias
+		@id_categoria int,
+		@categoria varchar(50)
+	as
+		update TblCategorias set id_categoria = @id_categoria, categoria = @categoria
+
+go
+
 -- ELIMINAR --
 
 create procedure Eliminar_TblLibros
@@ -256,5 +276,12 @@ create procedure Eliminar_TblDevoluciones
 		@id_devolucion int
 	as
 		delete from TblDevoluciones where id_devolucion = @id_devolucion
+
+go
+
+create procedure Eliminar_TblCategorias
+		@id_categoria int
+	as
+		delete from TblCategorias where id_categoria = @id_categoria
 
 go
