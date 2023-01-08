@@ -39,6 +39,7 @@ create table TblPrestamos(
 		id_prestamo int primary key identity,
 		id_libro int foreign key references TblLibros(id_libro) not null,
 		id_usuario int foreign key references TblUsuarios(id_usuario) not null,
+		id_estado int foreign key references TblEstados(id_estado) not null,
 		fecha_retiro datetime not null,
 		fecha_limite datetime not null
 )
@@ -51,7 +52,6 @@ create table TblEstados(
 create table TblDevoluciones(
 		id_devoluciones int identity primary key,
 		id_prestamo int foreign key references TblPrestamos(id_prestamo) not null,
-		id_estado int foreign key references TblEstados(id_estado) not null,
 		fecha_devolucion datetime not null
 )
 
@@ -77,7 +77,7 @@ create procedure Insertar_TblMiembros
 		@telefono_miembro char(10),
 		@direccion_miembro varchar(100)
 	as
-		insert into TblMiembros values (@nombre_miembro,@apellido_miembro,@identificacion_miembro,@email_miembro,@telefono_miembro,@direccion_miembro)
+		insert into TblMiembros values(@nombre_miembro,@apellido_miembro,@identificacion_miembro,@email_miembro,@telefono_miembro,@direccion_miembro)
 
 go
 
@@ -87,8 +87,37 @@ create procedure Insertar_TblUsuarios
 		@nombre_usuario varchar(25),
 		@clave_usuario varchar(50)
 	as
-		insert into	TblUsuarios values (@id_miembro,@id_rol,@nombre_usuario,@clave_usuario)
+		insert into	TblUsuarios values(@id_miembro,@id_rol,@nombre_usuario,@clave_usuario)
 
 go
 
-c
+create procedure Insertar_TblRoles
+		@rol varchar(50)
+	as
+		insert into TblRoles values(@rol)
+
+go
+
+create procedure Insertar_TblPrestamos
+		@id_libro int,
+		@id_usuario int,
+		@id_estado int,
+		@fecha_retiro datetime,
+		@fecha_limite datetime
+	as
+		insert into TblPrestamos values(@id_libro,@id_usuario,@id_estado,@fecha_retiro,@fecha_limite)
+
+go
+
+create procedure Insertar_TblEstados
+		@estado varchar(50)
+	as
+		insert into TblEstados values(@estado)
+
+go
+
+create procedure Insertar_TblDevoluciones
+		@id_prestamo int,
+		@fecha_devolucion datetime
+	as
+		insert into TblDevoluciones values(@id_prestamo,@fecha_devolucion)
