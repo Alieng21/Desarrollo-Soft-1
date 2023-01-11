@@ -46,5 +46,10 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
                 MessageBox.Show("Something went wrong!");
             }
         }
+
+        private void txtusuario_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

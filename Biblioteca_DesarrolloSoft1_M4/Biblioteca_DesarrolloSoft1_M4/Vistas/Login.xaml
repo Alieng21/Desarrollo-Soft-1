@@ -6,10 +6,61 @@
         xmlns:local="clr-namespace:Biblioteca_DesarrolloSoft1_M4.Vistas"
         mc:Ignorable="d"
         Title="Login" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="btnlogin" Content="Login" HorizontalAlignment="Left" Margin="152,253,0,0" VerticalAlignment="Top" Width="80" Click="btnlogin_Click"/>
-        <TextBox x:Name="txtusuario" HorizontalAlignment="Left" Margin="132,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="txtpassword" HorizontalAlignment="Left" Margin="132,181,0,0" PasswordChar="*" VerticalAlignment="Top" Width="120" />
+    <Grid Margin="10,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btnlogin" Content="Login" HorizontalAlignment="Left" Margin="38,312,0,0" VerticalAlignment="Top" Width="120" Click="btnlogin_Click" FontFamily="Arial" BorderBrush="#FFFABA26" Background="#FFFABA26" Foreground="White" Height="28" FontWeight="Bold">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="7"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <TextBox x:Name="txtusuario" HorizontalAlignment="Left" Margin="38,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" Background="#FFDADADA" BorderBrush="#FFDADADA">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <PasswordBox x:Name="txtpassword" HorizontalAlignment="Left" Margin="38,238,0,0" PasswordChar="*" VerticalAlignment="Top" Width="332" Height="30" Background="#FFDADADA" >
+            <PasswordBox.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </PasswordBox.Resources>
+        </PasswordBox>
+
+        <Image HorizontalAlignment="Left" Height="255" Margin="-16,-123,0,0" VerticalAlignment="Top" Width="393" Source="/Vistas/Imagenes/3.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.47"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.492"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Label Content="Usuario" HorizontalAlignment="Left" Height="28" Margin="38,148,0,0" VerticalAlignment="Top" Width="82" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Height="28" Margin="38,210,0,0" VerticalAlignment="Top" Width="99" FontFamily="Arial" FontSize="14" FontWeight="Bold"/>
+        <Border BorderBrush="Black" BorderThickness="0,1,0,0" HorizontalAlignment="Left" Height="30" Margin="36,176,0,0" VerticalAlignment="Top" Width="334" CornerRadius="10,10,10,10" UseLayoutRounding="False" ClipToBounds="True">
+            <Border.Effect>
+                <BlurEffect Radius="7"/>
+            </Border.Effect>
+        </Border>
+        <Image HorizontalAlignment="Left" Height="481" Margin="450,-47,0,0" VerticalAlignment="Top" Width="340" Source="/Vistas/Untitled design.png" Stretch="UniformToFill"/>
 
     </Grid>
 </Window>
