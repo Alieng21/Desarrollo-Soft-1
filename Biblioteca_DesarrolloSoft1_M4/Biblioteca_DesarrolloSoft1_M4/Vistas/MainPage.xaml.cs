@@ -35,5 +35,9 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
             lvLibros.ItemsSource = libros;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
