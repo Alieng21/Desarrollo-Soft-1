@@ -113,10 +113,11 @@ create procedure Insertar_TblPrestamos
 		@id_usuario int,
 		@id_estado int,
 		@fecha_prestamo datetime,
-		@fecha_limite datetime
+		@fecha_limite datetime,
+		@copias_libro int
 	as
 		insert into TblPrestamos values(@id_libro,@id_usuario,@id_estado,@fecha_prestamo,@fecha_limite)
-
+		update TblLibros set copias_libro = copias_libro - @copias_libro where id_libro = @id_libro
 go
 
 create procedure Insertar_TblEstados
@@ -287,3 +288,56 @@ create procedure Eliminar_TblCategorias
 		delete from TblCategorias where id_categoria = @id_categoria
 
 go
+
+/*Vistas*/
+
+-- MOSTRAR LIBROS: Muestra todos los libros almacenados en la base de datos con sus respectivas informaciones --
+
+create view Mostrar_TblLibros as
+	select TblLibros.nombre_libro as 'Nombre', TblCategorias.categoria as 'Categoria', 
+	TblLibros.autor_libro as 'Autor', TblLibros.editorial_libro as 'Editorial', 
+	TblLibros.copias_libro as 'Copias', TblLibros.ISBN
+	from TblLibros
+	INNER JOIN TblCategorias on TblLibros.id_categoria = TblCategorias.id_categoria
+
+go
+
+
+create view Mostrar_TblUsuario as
+	select TblMiembros.nombre_miembro as 'Nombre', TblMiembros.apellido_miembro as 'Apellido', 
+	TblUsuarios.nombre_usuario as 'Usuario', TblRoles.rol as 'Rol',
+	TblMiembros.identificacion_miembro as 'ID', TblMiembros.email_miembro as 'E-Mail', 
+	TblMiembros.telefono_miembro as 'Telefono', TblMiembros.direccion_miembro as 'Direccion'
+	from ((TblUsuarios
+	INNER JOIN TblMiembros on TblUsuarios.id_miembro = TblMiembros.id_miembro)
+	INNER JOIN TblRoles on TblUsuarios.id_rol = TblRoles.id_rol)
+
+select * from Mostrar_TblUsuario
+
+go
+
+create view Mostrar_TblPrestamos as
+	select TblLibros.nombre_libro as 'Libro', TblLibros.ISBN, TblMiembros.nombre_miembro + ' ' + 
+	TblMiembros.apellido_miembro + ' ' + TblMiembros.identificacion_miembro as 'Prestatario', 
+	TblPrestamos.fecha_prestamo as 'Fecha de Prestamo', TblPrestamos.fecha_limite as 'Fecha Limite de Prestamo',
+	TblEstados.estado as 'Estado de Prestamo'
+	from (TblUsuarios
+	INNER JOIN TblMiembros on TblUsuarios.id_miembro = TblMiembros.id_miembro),
+	((TblPrestamos
+	INNER JOIN TblLibros on TblPrestamos.id_libro = TblLibros.id_libro)
+	INNER JOIN TblEstados on TblPrestamos.id_estado = TblEstados.id_estado)
+
+go
+
+create view Mostrar_TblDevoluciones as
+	select  TblLibros.nombre_libro as 'Libro', TblLibros.ISBN, TblMiembros.nombre_miembro + ' ' + 
+	TblMiembros.apellido_miembro + ' ' + TblMiembros.identificacion_miembro as 'Prestatario', 
+	TblDevoluciones.fecha_devolucion as 'Fecha de Devolucion'
+	from (TblUsuarios
+	INNER JOIN TblMiembros on TblUsuarios.id_miembro = TblMiembros.id_miembro),
+	(TblPrestamos
+	INNER JOIN TblLibros on TblPrestamos.id_libro = TblLibros.id_libro), TblDevoluciones
+
+go
+
+select * from Mostrar_TblDevoluciones
