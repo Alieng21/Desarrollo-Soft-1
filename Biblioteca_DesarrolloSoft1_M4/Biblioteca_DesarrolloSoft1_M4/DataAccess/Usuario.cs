@@ -15,39 +15,41 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
     {
         private readonly SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionstring"].ConnectionString);
 
-
-        public int GetUser(string username,string password)
-        {
-			try
-			{
-				int rol = 0;
-				Usuarios user = new Usuarios();
+		//Login para el final
+   //     public int GetUser(string username,string password)
+   //     {
+			//try
+			//{
+			//	int rol = 0;
+			//	Usuarios user = new Usuarios();
 				
 
-				conn.Open();
-				SqlCommand cmd = new SqlCommand("select * from TblUsuarios where nombre_usuario = @username and clave_usuario = @password");
-				cmd.Parameters.AddWithValue("@username", username);
-				cmd.Parameters.AddWithValue("@password", password);
+			//	conn.Open();
+			//	SqlCommand cmd = new SqlCommand("select * from TblUsuarios where nombre_usuario = @username and clave_usuario = @password");
+			//	cmd.Parameters.AddWithValue("@username", username);
+			//	cmd.Parameters.AddWithValue("@password", password);
 
-				SqlDataReader rd = cmd.ExecuteReader();
+			//	SqlDataReader rd = cmd.ExecuteReader();
 
-				if (rd.Read())
-				{
-					user.id_rol = rd.GetInt32(0);
-					user.id_miembro = rd.GetInt32(1);
-					user.id_rol = rd.GetInt32(2);
-					user.nombre_usuario = rd.GetString(3);
-					user.clave_usuario = rd.GetString(4);
-				}
+			//	if (rd.Read())
+			//	{
+			//		user.id_rol = rd.GetInt32(0);
+			//		user.id_miembro = rd.GetInt32(1);
+			//		user.id_rol = rd.GetInt32(2);
+			//		user.nombre_usuario = rd.GetString(3);
+			//		user.clave_usuario = rd.GetString(4);
+			//	}
 
-				rol = user.id_rol;
+			//	rol = user.id_rol;
 					
-				return rol;
-			}
-			catch (Exception e)
-			{
-				throw;
-			}
-        }
+			//	return rol;
+			//}
+			//catch (Exception e)
+			//{
+			//	throw;
+			//}
+   //     }
+
+
     }
 }
