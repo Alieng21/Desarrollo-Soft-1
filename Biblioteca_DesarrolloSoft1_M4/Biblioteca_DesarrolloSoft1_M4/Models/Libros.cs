@@ -8,8 +8,10 @@ namespace Biblioteca_DesarrolloSoft1_M4.Models
 {
     public class Libros
     {
-        public int id_libro { get; set; }
+        //public int id_libro { get; set; }
         public string nombre_libro { get; set; }
+
+        public string categoria_libro { get; set; }
 
         public string autor_libro { get; set; }
 

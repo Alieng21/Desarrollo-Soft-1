@@ -28,23 +28,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
 
         private void btnlogin_Click(object sender, RoutedEventArgs e)
         {
-            int n = usuario.GetUser(txtusuario.Text, txtpassword.Password.ToString());
-            if(n == 0)
-            {
-                MessageBox.Show("Usuario o contraseña invalidos");
-            }else if(n ==1)
-            {
-                MessageBox.Show("Bienvenido admin");
-            }else if(n == 2) 
-            {
-                MessageBox.Show("");
-            }else if(n == 3)
-            {
-                MessageBox.Show("");
-            }else if(n == -1)
-            {
-                MessageBox.Show("Something went wrong!");
-            }
+           
         }
 
         private void txtusuario_TextChanged(object sender, TextChangedEventArgs e)

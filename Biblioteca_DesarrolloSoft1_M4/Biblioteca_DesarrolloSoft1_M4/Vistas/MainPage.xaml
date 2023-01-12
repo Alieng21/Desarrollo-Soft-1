@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainPage" Height="450" Width="800">
     <Grid>
+        <ListView Margin="204,118,10,10" Name="lvLibros">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nombre" Width="120" DisplayMemberBinding="{Binding nombre_libro}"/>
+                    <GridViewColumn Header="Categoria" Width="120" DisplayMemberBinding="{Binding categoria_libro}"/>
+                    <GridViewColumn Header="Autor" Width="120" DisplayMemberBinding="{Binding autor_libro}"/>
+                    <GridViewColumn Header="Editorial" Width="120" DisplayMemberBinding="{Binding editorial_libro}"/>
+                    <GridViewColumn Header="Copias" Width="120" DisplayMemberBinding="{Binding copias_libro}"/>
+                    <GridViewColumn Header="ISBN" Width="120" DisplayMemberBinding="{Binding ISBN}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
         
     </Grid>
 </Window>
