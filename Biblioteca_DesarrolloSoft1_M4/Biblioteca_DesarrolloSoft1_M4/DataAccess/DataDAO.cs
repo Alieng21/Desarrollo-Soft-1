@@ -92,7 +92,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 List<Libros> libros = new List<Libros>();
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblLibros where "+filtro+" = @dato",conn);
+                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblLibros where "+filtro+" LIKE %@dato%",conn);
                 //cmd.Parameters.AddWithValue("@filtro", filtro);
                 cmd.Parameters.AddWithValue("@dato", dato);
 
