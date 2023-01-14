@@ -7,13 +7,10 @@
         mc:Ignorable="d"
         Title="MainPage" Height="450" Width="800">
     <Grid>
-<<<<<<< Updated upstream
-        <ListView Margin="176,268,47,44" Name="lvLibros" FontWeight="Bold">
-=======
 
+        
         <ListView Margin="176,201,10,10" x:Name="lvLibros" Background="White">
->>>>>>> Stashed changes
-            <ListView.View>
+                <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nombre" Width="110" DisplayMemberBinding="{Binding nombre_libro}"/>
                     <GridViewColumn Header="Categoria" Width="110" DisplayMemberBinding="{Binding categoria_libro}"/>
@@ -24,11 +21,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
-<<<<<<< Updated upstream
+
         <Button Content="Libros" HorizontalAlignment="Left" Height="44" Margin="0,50,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,0,0,1" Foreground="White"/>
-=======
+
         <Button x:Name="btnLibros" Content="Libros" HorizontalAlignment="Left" Height="44" Margin="0,50,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,0,0,1" Foreground="Gainsboro"/>
->>>>>>> Stashed changes
+
         <Border HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="800" Background="#FF0C316B"/>
         <Button Content="Usuarios" HorizontalAlignment="Left" Height="44" Margin="0,93,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Foreground="White" Click="Button_Click_1"/>
         <Button Content="Prestamos" HorizontalAlignment="Left" Height="44" Margin="0,136,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" Foreground="White" BorderThickness="0,1,0,1"/>
@@ -52,27 +49,11 @@
                 </TransformGroup>
             </Border.RenderTransform>
         </Border>
-<<<<<<< Updated upstream
+
         <Button Content="Devoluciones" HorizontalAlignment="Left" Height="44" Margin="0,179,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1"/>
         <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
         <ComboBox HorizontalAlignment="Left" Margin="212,115,0,0" VerticalAlignment="Top" Width="154" Background="Black"/>
-=======
-        <Button Content="Button" HorizontalAlignment="Left" Height="44" Margin="0,179,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD"/>
-        <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="#FFE4E4E4"/>
-        <GroupBox Margin="187,104,37,254">
-            <Button x:Name="btnbuscar"  Content="Buscar" Margin="456,0,9,0" Click="btnbuscar_Click" Height="27" RenderTransformOrigin="0.5,0.5">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="1" ScaleY="1"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-            </Button>
-        </GroupBox>
 
->>>>>>> Stashed changes
 
     </Grid>
 </Window>

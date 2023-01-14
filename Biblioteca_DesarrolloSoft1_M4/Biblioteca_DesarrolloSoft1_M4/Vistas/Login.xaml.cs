@@ -20,7 +20,6 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
     /// </summary>
     public partial class Login : Window
     {
-        private Usuario usuario = new Usuario();
         public Login()
         {
             InitializeComponent();

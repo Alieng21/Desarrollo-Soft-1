@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Threading.Channels;
 
 namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
 {
@@ -49,7 +50,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
         //	throw;
         //}
         //     }
-        
+
         public List<Libros> getAllLibros()
         {
             try
@@ -57,20 +58,20 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 List<Libros> libros = new List<Libros>();
 
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Mostrar_TblLibros",conn);
+                SqlCommand cmd = new SqlCommand("Select * from Mostrar_TblLibros", conn);
 
                 SqlDataReader rd = cmd.ExecuteReader();
 
-                while(rd.Read())
+                while (rd.Read())
                 {
                     libros.Add(new Libros
                     {
-                        nombre_libro = rd.GetString(0),
-                        categoria_libro = rd.GetString(1),
-                        autor_libro = rd.GetString(2),
-                        editorial_libro= rd.GetString(3),
-                        copias_libro = rd.GetInt32(4),
-                        ISBN = rd.GetString(5)
+                        nombre_libro = rd.GetString(1),
+                        categoria_libro = rd.GetString(2),
+                        autor_libro = rd.GetString(3),
+                        editorial_libro = rd.GetString(4),
+                        copias_libro = rd.GetInt32(5),
+                        ISBN = rd.GetString(6)
                     });
                 }
 
@@ -86,29 +87,29 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
             }
         }
 
-        public List<Libros> getLibrosBy(string filtro, string dato) 
+        public List<Libros> getLibrosBy(string filtro, string dato)
         {
             try
             {
                 List<Libros> libros = new List<Libros>();
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblLibros where "+filtro+" = @dato",conn);
+                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblLibros where " + filtro + " = @dato", conn);
 
                 cmd.Parameters.AddWithValue("@dato", dato);
 
                 SqlDataReader rd = cmd.ExecuteReader();
 
-                while(rd.Read())
+                while (rd.Read())
                 {
                     libros.Add(new Libros
                     {
-                        nombre_libro = rd.GetString(0),
-                        categoria_libro = rd.GetString(1),
-                        autor_libro = rd.GetString(2),
-                        editorial_libro = rd.GetString(3),
-                        copias_libro = rd.GetInt32(4),
-                        ISBN = rd.GetString(5)
+                        nombre_libro = rd.GetString(1),
+                        categoria_libro = rd.GetString(2),
+                        autor_libro = rd.GetString(3),
+                        editorial_libro = rd.GetString(4),
+                        copias_libro = rd.GetInt32(5),
+                        ISBN = rd.GetString(6)
                     });
                 }
 
@@ -121,7 +122,6 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
             }
         }
 
-<<<<<<< Updated upstream
         public List<Usuarios> getAllUsuarios()
         {
 
@@ -138,14 +138,14 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 {
                     usuarios.Add(new Usuarios
                     {
-                        nombre_miembro = rd.GetString(0),
-                        apellido_miembro = rd.GetString(1),
-                        nombre_usuario = rd.GetString(2),
-                        rol = rd.GetString(3),
-                        identificacion_miembro = rd.GetString(4),
-                        email_miembro = rd.GetString(5),
-                        telefono_miembro = rd.GetString(6),
-                        direccion_miembro = rd.GetString(7)
+                        nombre_miembro = rd.GetString(1),
+                        apellido_miembro = rd.GetString(2),
+                        nombre_usuario = rd.GetString(3),
+                        rol = rd.GetString(4),
+                        identificacion_miembro = rd.GetString(5),
+                        email_miembro = rd.GetString(6),
+                        telefono_miembro = rd.GetString(7),
+                        direccion_miembro = rd.GetString(8)
 
                     });
                 }
@@ -172,8 +172,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 List<Usuarios> usuarios = new List<Usuarios>();
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblUsuario where " + filtro + " LIKE %@dato%", conn);
-                //cmd.Parameters.AddWithValue("@filtro", filtro);
+                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblUsuario where " + filtro + " = @dato", conn);
                 cmd.Parameters.AddWithValue("@dato", dato);
 
                 SqlDataReader rd = cmd.ExecuteReader();
@@ -182,35 +181,41 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 {
                     usuarios.Add(new Usuarios
                     {
-                        nombre_miembro = rd.GetString(0),
-                        apellido_miembro = rd.GetString(1),
-                        nombre_usuario = rd.GetString(2),
-                        rol = rd.GetString(3),
-                        identificacion_miembro = rd.GetString(4),
-                        email_miembro = rd.GetString(5),
-                        telefono_miembro = rd.GetString(6),
-                        direccion_miembro = rd.GetString(7)
+                        nombre_miembro = rd.GetString(1),
+                        apellido_miembro = rd.GetString(2),
+                        nombre_usuario = rd.GetString(3),
+                        rol = rd.GetString(4),
+                        identificacion_miembro = rd.GetString(5),
+                        email_miembro = rd.GetString(6),
+                        telefono_miembro = rd.GetString(7),
+                        direccion_miembro = rd.GetString(8)
                     });
                 }
 
                 return usuarios;
-=======
-        public void RegistrarPrestamo(string isbn,string identificacion,DateTime fecha_prestamo,DateTime fecha_limite,int copias)
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void RegistrarPrestamo(string isbn, string identificacion, DateTime fecha_prestamo, DateTime fecha_limite, int copias)
         {
             try
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("select Id from Mostrar_TblLibros where ISBN = @isbn",conn);
+                SqlCommand cmd = new SqlCommand("select Id from Mostrar_TblLibros where ISBN = @isbn", conn);
                 cmd.Parameters.AddWithValue("@isbn", isbn);
                 int idlibro = Convert.ToInt32(cmd.ExecuteScalar());
 
-                cmd = new SqlCommand("select IdUsuario from Mostrar_TblUsuario where ID = @identificacion",conn);
+                cmd = new SqlCommand("select IdUsuario from Mostrar_TblUsuario where ID = @identificacion", conn);
                 cmd.Parameters.AddWithValue("@identificacion", identificacion);
                 int idusuario = Convert.ToInt32(cmd.ExecuteScalar());
 
-                cmd = new SqlCommand("Insertar_TblPrestamos",conn);
-                cmd.CommandType =CommandType.StoredProcedure;
+                cmd = new SqlCommand("Insertar_TblPrestamos", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_libro", idlibro);
                 cmd.Parameters.AddWithValue("@id_usuario", idusuario);
                 cmd.Parameters.AddWithValue("@id_estado", 1);
@@ -220,7 +225,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
 
                 int x = Convert.ToInt32(cmd.ExecuteNonQuery());
 
-                if (x = 2)
+                if (x == 2)
                 {
                     MessageBox.Show("Se ejecuto correctamente!");
                 }
@@ -230,28 +235,14 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
 
                 }
 
-
-
                 conn.Close();
->>>>>>> Stashed changes
+
             }
             catch (Exception)
             {
-
-<<<<<<< Updated upstream
-                throw;
-            }
-        }
-
-
-
-=======
                 MessageBox.Show("Hubo un error!");
             }
         }
->>>>>>> Stashed changes
     }
-
-
-    }
-
+}
+            
