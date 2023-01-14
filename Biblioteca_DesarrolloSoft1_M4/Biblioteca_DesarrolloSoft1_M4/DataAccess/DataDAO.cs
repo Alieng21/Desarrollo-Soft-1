@@ -200,24 +200,16 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
             }
         }
 
-        public void RegistrarPrestamo(string isbn, string identificacion, DateTime fecha_prestamo, DateTime fecha_limite, int copias)
+        public void registrarPrestamo(string isbn, string identificacion, DateTime fecha_prestamo, DateTime fecha_limite, int copias)
         {
             try
             {
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("select Id from Mostrar_TblLibros where ISBN = @isbn", conn);
-                cmd.Parameters.AddWithValue("@isbn", isbn);
-                int idlibro = Convert.ToInt32(cmd.ExecuteScalar());
-
-                cmd = new SqlCommand("select IdUsuario from Mostrar_TblUsuario where ID = @identificacion", conn);
-                cmd.Parameters.AddWithValue("@identificacion", identificacion);
-                int idusuario = Convert.ToInt32(cmd.ExecuteScalar());
-
-                cmd = new SqlCommand("Insertar_TblPrestamos", conn);
+                SqlCommand cmd = new SqlCommand("Insertar_TblPrestamos", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_libro", idlibro);
-                cmd.Parameters.AddWithValue("@id_usuario", idusuario);
+                cmd.Parameters.AddWithValue("@isbn", isbn);
+                cmd.Parameters.AddWithValue("@identificacion", identificacion);
                 cmd.Parameters.AddWithValue("@id_estado", 1);
                 cmd.Parameters.AddWithValue("@fecha_prestamo", fecha_prestamo);
                 cmd.Parameters.AddWithValue("@fecha_limite", fecha_limite);
@@ -243,6 +235,43 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 MessageBox.Show("Hubo un error!");
             }
         }
+
+        public void registrarDevolucion(int id_prestamo, DateTime fecha_devolucion, int copias)
+        {
+            try
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("Insertar_TblDevoluciones", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_prestamo", id_prestamo);
+                cmd.Parameters.AddWithValue("@fecha_devolucion", fecha_devolucion);
+                cmd.Parameters.AddWithValue("@copias_libro", copias);
+
+                int x = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+                if (x == 2)
+                {
+                    MessageBox.Show("Se ejecuto correctamente!");
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error!");
+
+                }
+
+                conn.Close();
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Hubo un error!");
+
+            }
+        }
+
+
     }
 }
             

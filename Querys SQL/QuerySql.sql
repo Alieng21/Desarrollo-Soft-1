@@ -1,3 +1,7 @@
+Create database bdbiblioteca
+
+go
+
 use bdbiblioteca
 
 /*Tablas*/
@@ -110,16 +114,25 @@ create procedure Insertar_TblRoles
 go
 
 create procedure Insertar_TblPrestamos
-		@id_libro int,
-		@id_usuario int,
+		@isbn char(13),
+		@identificacion char(11),
 		@id_estado int,
+		@copias_libro int,
 		@fecha_prestamo datetime,
-		@fecha_limite datetime,
-		@copias_libro int
+		@fecha_limite datetime
 	as
-		insert into TblPrestamos values(@id_libro,@id_usuario,@id_estado,@copias_libro,@fecha_prestamo,@fecha_limite)
-		update TblLibros set copias_libro = copias_libro - @copias_libro where id_libro = @id_libro
+		insert into TblPrestamos values((select Id from Mostrar_TblLibros where ISBN = @isbn),(select IdUsuario from Mostrar_TblUsuario where ID = @identificacion),@id_estado,@copias_libro,@fecha_prestamo,@fecha_limite)
+		update TblLibros set copias_libro = copias_libro - @copias_libro where id_libro = (select Id from Mostrar_TblLibros where ISBN = @isbn)
 go
+
+select IdUsuario from Mostrar_TblUsuario where ID = '40242319511'
+select Id from Mostrar_TblLibros where ISBN = ''
+
+select * from Mostrar_TblLibros
+
+select * from Mostrar_TblLibros
+
+exec Insertar_TblPrestamos '123455432','40242319511',1,5,GETDATE,GETDATE
 
 create procedure Insertar_TblEstados
 		@estado varchar(50)
@@ -130,10 +143,11 @@ go
 
 create procedure Insertar_TblDevoluciones
 		@id_prestamo int,
-		@fecha_devolucion datetime
+		@fecha_devolucion datetime,
+		@copias_libro int
 	as
 		insert into TblDevoluciones values(@id_prestamo,@fecha_devolucion)
-
+		update TblLibros set copias_libro = copias_libro + @copias_libro where id_libro = (select id_libro from TblPrestamos where id_prestamo = @id_prestamo)
 go
 
 create procedure Insertar_TblCategorias
@@ -313,13 +327,11 @@ create view Mostrar_TblUsuario as
 	INNER JOIN TblMiembros on TblUsuarios.id_miembro = TblMiembros.id_miembro)
 	INNER JOIN TblRoles on TblUsuarios.id_rol = TblRoles.id_rol)
 
-select * from Mostrar_TblUsuario
-
 go
 
 create view Mostrar_TblPrestamos as
-	select TblLibros.nombre_libro as 'Libro', TblLibros.ISBN, TblMiembros.nombre_miembro + ' ' + 
-	TblMiembros.apellido_miembro + ' ' + TblMiembros.identificacion_miembro as 'Prestatario', 
+	select TblPrestamos.id_prestamo as 'Id', TblLibros.nombre_libro as 'Libro', TblLibros.ISBN as 'ISBN', TblMiembros.nombre_miembro + ' ' + 
+	TblMiembros.apellido_miembro + ' ' + TblMiembros.identificacion_miembro as 'Prestatario', TblPrestamos.copias_libro as 'Copias',
 	TblPrestamos.fecha_prestamo as 'Fecha de Prestamo', TblPrestamos.fecha_limite as 'Fecha Limite de Prestamo',
 	TblEstados.estado as 'Estado de Prestamo'
 	from (TblUsuarios
@@ -332,7 +344,7 @@ go
 
 create view Mostrar_TblDevoluciones as
 	select  TblLibros.nombre_libro as 'Libro', TblLibros.ISBN, TblMiembros.nombre_miembro + ' ' + 
-	TblMiembros.apellido_miembro + ' ' + TblMiembros.identificacion_miembro as 'Prestatario', 
+	TblMiembros.apellido_miembro + ' ' + TblMiembros.identificacion_miembro as 'Prestatario', TblPrestamos.copias_libro as 'Copias',
 	TblDevoluciones.fecha_devolucion as 'Fecha de Devolucion'
 	from (TblUsuarios
 	INNER JOIN TblMiembros on TblUsuarios.id_miembro = TblMiembros.id_miembro),
@@ -341,4 +353,3 @@ create view Mostrar_TblDevoluciones as
 
 go
 
-select * from Mostrar_TblDevoluciones
