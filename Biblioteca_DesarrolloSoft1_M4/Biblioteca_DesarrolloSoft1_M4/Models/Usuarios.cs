@@ -8,10 +8,13 @@ namespace Biblioteca_DesarrolloSoft1_M4.Models
 {
     public class Usuarios
     {
-        public int id_usuario { get; set; }
-        public int id_miembro { get; set; }
-        public int id_rol { get; set; }
+        public string nombre_miembro { get; set; }
+        public string apellido_miembro { get; set; }
         public string nombre_usuario { get; set; }
-        public string clave_usuario { get; set; }
+        public string rol { get; set; }
+        public string identificacion_miembro { get; set; }
+        public string email_miembro { get; set; }
+        public string telefono_miembro { get; set; }
+        public string direccion_miembro { get; set; }
     }
 }

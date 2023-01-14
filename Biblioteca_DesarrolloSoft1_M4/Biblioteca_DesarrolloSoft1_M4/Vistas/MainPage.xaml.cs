@@ -39,5 +39,10 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
         {
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

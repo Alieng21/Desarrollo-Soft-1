@@ -119,5 +119,91 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 throw;
             }
         }
+
+        public List<Usuarios> getAllUsuarios()
+        {
+
+            try
+            {
+
+                List<Usuarios> usuarios = new List<Usuarios>();
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select * from Mostrar_TblUsuario", conn);
+
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    usuarios.Add(new Usuarios
+                    {
+                        nombre_miembro = rd.GetString(0),
+                        apellido_miembro = rd.GetString(1),
+                        nombre_usuario = rd.GetString(2),
+                        rol = rd.GetString(3),
+                        identificacion_miembro = rd.GetString(4),
+                        email_miembro = rd.GetString(5),
+                        telefono_miembro = rd.GetString(6),
+                        direccion_miembro = rd.GetString(7)
+
+                    });
+                }
+
+                conn.Close();
+
+                return usuarios;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Something went wrong!");
+                throw;
+            }
+
+
+
+        }
+
+        public List<Usuarios> getUsuariosBy(string filtro, string dato)
+        {
+            try
+            {
+                List<Usuarios> usuarios = new List<Usuarios>();
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblUsuario where " + filtro + " LIKE %@dato%", conn);
+                //cmd.Parameters.AddWithValue("@filtro", filtro);
+                cmd.Parameters.AddWithValue("@dato", dato);
+
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    usuarios.Add(new Usuarios
+                    {
+                        nombre_miembro = rd.GetString(0),
+                        apellido_miembro = rd.GetString(1),
+                        nombre_usuario = rd.GetString(2),
+                        rol = rd.GetString(3),
+                        identificacion_miembro = rd.GetString(4),
+                        email_miembro = rd.GetString(5),
+                        telefono_miembro = rd.GetString(6),
+                        direccion_miembro = rd.GetString(7)
+                    });
+                }
+
+                return usuarios;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
     }
-}
+
+
+    }
+
