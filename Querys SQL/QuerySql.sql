@@ -50,6 +50,7 @@ create table TblPrestamos(
 		id_libro int foreign key references TblLibros(id_libro) not null,
 		id_usuario int foreign key references TblUsuarios(id_usuario) not null,
 		id_estado int foreign key references TblEstados(id_estado) not null,
+		copias_libro int not null,
 		fecha_prestamo datetime not null,
 		fecha_limite datetime not null
 )
@@ -116,7 +117,7 @@ create procedure Insertar_TblPrestamos
 		@fecha_limite datetime,
 		@copias_libro int
 	as
-		insert into TblPrestamos values(@id_libro,@id_usuario,@id_estado,@fecha_prestamo,@fecha_limite)
+		insert into TblPrestamos values(@id_libro,@id_usuario,@id_estado,@copias_libro,@fecha_prestamo,@fecha_limite)
 		update TblLibros set copias_libro = copias_libro - @copias_libro where id_libro = @id_libro
 go
 
@@ -294,7 +295,7 @@ go
 -- MOSTRAR LIBROS: Muestra todos los libros almacenados en la base de datos con sus respectivas informaciones --
 
 create view Mostrar_TblLibros as
-	select TblLibros.nombre_libro as 'Nombre', TblCategorias.categoria as 'Categoria', 
+	select TblLibros.id_libro as 'Id', TblLibros.nombre_libro as 'Nombre', TblCategorias.categoria as 'Categoria', 
 	TblLibros.autor_libro as 'Autor', TblLibros.editorial_libro as 'Editorial', 
 	TblLibros.copias_libro as 'Copias', TblLibros.ISBN
 	from TblLibros
@@ -304,7 +305,7 @@ go
 
 
 create view Mostrar_TblUsuario as
-	select TblMiembros.nombre_miembro as 'Nombre', TblMiembros.apellido_miembro as 'Apellido', 
+	select TblUsuarios.id_usuario as 'IdUsuario', TblMiembros.nombre_miembro as 'Nombre', TblMiembros.apellido_miembro as 'Apellido', 
 	TblUsuarios.nombre_usuario as 'Usuario', TblRoles.rol as 'Rol',
 	TblMiembros.identificacion_miembro as 'ID', TblMiembros.email_miembro as 'E-Mail', 
 	TblMiembros.telefono_miembro as 'Telefono', TblMiembros.direccion_miembro as 'Direccion'

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,8 +93,8 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 List<Libros> libros = new List<Libros>();
                 conn.Open();
 
-                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblLibros where "+filtro+" LIKE %@dato%",conn);
-                //cmd.Parameters.AddWithValue("@filtro", filtro);
+                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblLibros where "+filtro+" = @dato",conn);
+
                 cmd.Parameters.AddWithValue("@dato", dato);
 
                 SqlDataReader rd = cmd.ExecuteReader();
@@ -120,6 +121,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
             }
         }
 
+<<<<<<< Updated upstream
         public List<Usuarios> getAllUsuarios()
         {
 
@@ -192,16 +194,62 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 }
 
                 return usuarios;
+=======
+        public void RegistrarPrestamo(string isbn,string identificacion,DateTime fecha_prestamo,DateTime fecha_limite,int copias)
+        {
+            try
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand("select Id from Mostrar_TblLibros where ISBN = @isbn",conn);
+                cmd.Parameters.AddWithValue("@isbn", isbn);
+                int idlibro = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd = new SqlCommand("select IdUsuario from Mostrar_TblUsuario where ID = @identificacion",conn);
+                cmd.Parameters.AddWithValue("@identificacion", identificacion);
+                int idusuario = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd = new SqlCommand("Insertar_TblPrestamos",conn);
+                cmd.CommandType =CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_libro", idlibro);
+                cmd.Parameters.AddWithValue("@id_usuario", idusuario);
+                cmd.Parameters.AddWithValue("@id_estado", 1);
+                cmd.Parameters.AddWithValue("@fecha_prestamo", fecha_prestamo);
+                cmd.Parameters.AddWithValue("@fecha_limite", fecha_limite);
+                cmd.Parameters.AddWithValue("@copias_libro", copias);
+
+                int x = Convert.ToInt32(cmd.ExecuteNonQuery());
+
+                if (x = 2)
+                {
+                    MessageBox.Show("Se ejecuto correctamente!");
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error!");
+
+                }
+
+
+
+                conn.Close();
+>>>>>>> Stashed changes
             }
             catch (Exception)
             {
 
+<<<<<<< Updated upstream
                 throw;
             }
         }
 
 
 
+=======
+                MessageBox.Show("Hubo un error!");
+            }
+        }
+>>>>>>> Stashed changes
     }
 
 
