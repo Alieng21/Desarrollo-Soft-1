@@ -17,39 +17,55 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
         private readonly SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionstring"].ConnectionString);
 
         //Login para el final
-        //     public int GetUser(string username,string password)
-        //     {
-        //try
-        //{
-        //	int rol = 0;
-        //	Usuarios user = new Usuarios();
+        public Usuarios GetUser(string username, string password)
+        {
+            Usuarios user = new Usuarios();
 
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select * from TblUsuarios where nombre_usuario = @username and clave_usuario = @password",conn);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
 
-        //	conn.Open();
-        //	SqlCommand cmd = new SqlCommand("select * from TblUsuarios where nombre_usuario = @username and clave_usuario = @password");
-        //	cmd.Parameters.AddWithValue("@username", username);
-        //	cmd.Parameters.AddWithValue("@password", password);
+                SqlDataReader rd = cmd.ExecuteReader();
 
-        //	SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.HasRows)
+                {
+                    rd.Close();
+                    cmd = new SqlCommand("select * from Mostrar_TblUsuario where usuario = @username",conn);
+                    cmd.Parameters.AddWithValue("@username", username);
 
-        //	if (rd.Read())
-        //	{
-        //		user.id_rol = rd.GetInt32(0);
-        //		user.id_miembro = rd.GetInt32(1);
-        //		user.id_rol = rd.GetInt32(2);
-        //		user.nombre_usuario = rd.GetString(3);
-        //		user.clave_usuario = rd.GetString(4);
-        //	}
+                    SqlDataReader rd2 = cmd.ExecuteReader();
+                    if (rd2.Read())
+                    {
+                        user.nombre_usuario = rd2.GetString(1);
+                        user.apellido_miembro = rd2.GetString(2);
+                        user.nombre_usuario = rd2.GetString(3);
+                        user.rol = rd2.GetString(4);
+                        user.identificacion_miembro = rd2.GetString(5);
+                        user.email_miembro = rd2.GetString(6);
+                        user.telefono_miembro = rd2.GetString(7);
+                        user.direccion_miembro = rd2.GetString(8);
+                    }
+                  
+                    MessageBox.Show("Bienvenido "+user.nombre_usuario+"");
 
-        //	rol = user.id_rol;
+                }
+                else
+                {
+                    MessageBox.Show("Nombre de usuario o Contraseña incorrecta!");
+                }
+                conn.Close();
 
-        //	return rol;
-        //}
-        //catch (Exception e)
-        //{
-        //	throw;
-        //}
-        //     }
+                return user;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return user;
+            }
+        }
 
         public List<Libros> getAllLibros()
         {
@@ -270,6 +286,8 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
 
             }
         }
+
+
 
 
     }

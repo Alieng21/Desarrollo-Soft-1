@@ -9,7 +9,32 @@
 
   <ItemGroup>
     <None Remove="Vistas\3.png" />
+    <None Remove="Vistas\Imagenes\1.png" />
+    <None Remove="Vistas\Imagenes\2.png" />
+    <None Remove="Vistas\Imagenes\3.png" />
+    <None Remove="Vistas\Imagenes\4.png" />
+    <None Remove="Vistas\Imagenes\5.png" />
+    <None Remove="Vistas\Imagenes\login.png" />
+    <None Remove="Vistas\Imagenes\Untitled design.png" />
     <None Remove="Vistas\Untitled design.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Vistas\Imagenes\1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Vistas\Imagenes\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Vistas\Imagenes\4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Vistas\Imagenes\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Vistas\Imagenes\Untitled design.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +42,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Vistas\Imagenes\3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Vistas\Imagenes\login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Vistas\Untitled design.png" />
   </ItemGroup>
 

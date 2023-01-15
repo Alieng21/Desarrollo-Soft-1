@@ -20,6 +20,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
     /// </summary>
     public partial class Login : Window
     {
+        readonly private DataDAO data = new DataDAO();
         public Login()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
 
         private void btnlogin_Click(object sender, RoutedEventArgs e)
         {
-           
+            data.GetUser(txtusuario.Text,txtpassword.Text);
         }
 
         private void txtusuario_TextChanged(object sender, TextChangedEventArgs e)
