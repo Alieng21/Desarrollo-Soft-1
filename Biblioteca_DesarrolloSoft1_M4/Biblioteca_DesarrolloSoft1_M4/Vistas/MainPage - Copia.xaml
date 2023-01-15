@@ -1,0 +1,51 @@
+﻿<Window x:Class="Biblioteca_DesarrolloSoft1_M4.Vistas.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteca_DesarrolloSoft1_M4.Vistas"
+        mc:Ignorable="d"
+        Title="MainPage" Height="450" Width="800">
+    <Grid>
+        <ListView Margin="176,268,47,44" Name="lvLibros" FontWeight="Bold">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nombre" Width="120" DisplayMemberBinding="{Binding nombre_libro}"/>
+                    <GridViewColumn Header="Categoria" Width="120" DisplayMemberBinding="{Binding categoria_libro}"/>
+                    <GridViewColumn Header="Autor" Width="120" DisplayMemberBinding="{Binding autor_libro}"/>
+                    <GridViewColumn Header="Editorial" Width="120" DisplayMemberBinding="{Binding editorial_libro}"/>
+                    <GridViewColumn Header="Copias" Width="120" DisplayMemberBinding="{Binding copias_libro}"/>
+                    <GridViewColumn Header="ISBN" Width="120" DisplayMemberBinding="{Binding ISBN}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Libros" HorizontalAlignment="Left" Height="44" Margin="0,50,0,0" VerticalAlignment="Top" Width="131" Click="Button_Click" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,0,0,1" Foreground="White"/>
+        <Border HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="800" Background="#FF0C316B"/>
+        <Button Content="Usuarios" HorizontalAlignment="Left" Height="44" Margin="0,93,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Foreground="White" Click="Button_Click_1"/>
+        <Button Content="Prestamos" HorizontalAlignment="Left" Height="44" Margin="0,136,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" Foreground="White" BorderThickness="0,1,0,1"/>
+        <Image HorizontalAlignment="Left" Height="98" Margin="6,-53,0,0" VerticalAlignment="Top" Width="166" Source="/Vistas/Imagenes/4.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.47"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.492"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Border HorizontalAlignment="Left" Height="253" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Margin="0,181,0,0" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+        <Button Content="Devoluciones" HorizontalAlignment="Left" Height="44" Margin="0,179,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1"/>
+        <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
+        <ComboBox HorizontalAlignment="Left" Margin="212,115,0,0" VerticalAlignment="Top" Width="154" Background="Black"/>
+
+    </Grid>
+</Window>
