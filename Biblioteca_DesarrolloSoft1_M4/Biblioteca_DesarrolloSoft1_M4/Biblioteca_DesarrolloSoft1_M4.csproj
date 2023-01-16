@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Font\Bold.ttf" />
     <None Remove="Font\password.ttf" />
     <None Remove="Font\Poppins.ttf" />
     <None Remove="Vistas\3.png" />
@@ -24,9 +23,6 @@
 
   <ItemGroup>
     <Content Include="Font\password.ttf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Font\Bold.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Font\Poppins.ttf">
