@@ -23,43 +23,24 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.Cliente
     {
         DataDAO data = new DataDAO();
         List<Devoluciones> devoluciones = new List<Devoluciones>();
-        public ClienteDevoluciones()
+        Usuarios usuarios = new Usuarios();
+        public ClienteDevoluciones(Usuarios user)
         {
             InitializeComponent();
+            usuarios = user;
+            bindData();
+            lblNombre.Content = user.nombre_miembro + " " + user.apellido_miembro;
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        public void bindData()
         {
-            try
-            {
-                string id = txtid.Text;
-
-                if (id == null)
-                {
-                    MessageBox.Show("Debe llenar todos los campos");
-                }
-                else
-                {
-                    devoluciones = data.GetDevolucionesByUSer(id);
-                    lvDevoluciones.ItemsSource = devoluciones;
-                }
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Debe llenar todos los campos");
-            }
-        }
-
-        private void btnrefresh_Click(object sender, RoutedEventArgs e)
-        {
-            txtid.Clear();
-            lvDevoluciones.Items.Clear();
+            devoluciones = data.GetDevolucionesByUSer(usuarios.identificacion_miembro);
+            lvDevoluciones.ItemsSource = devoluciones;
         }
 
         private void btnLibros_Click(object sender, RoutedEventArgs e)
         {
-            ClienteMP clienteMP = new ClienteMP();
+            ClienteMP clienteMP = new ClienteMP(usuarios);
             clienteMP.Show();
             this.Close();
         }

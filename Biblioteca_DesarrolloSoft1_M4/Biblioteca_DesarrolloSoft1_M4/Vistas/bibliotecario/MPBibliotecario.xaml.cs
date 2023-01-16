@@ -23,13 +23,16 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
     {
         private DataDAO data = new DataDAO();
         private List<Libros> libros = new List<Libros>();
-        
-        public MPBibliotecario()
+        Usuarios user = new Usuarios();
+        public MPBibliotecario(Usuarios usuarios)
         {
             InitializeComponent();
-            bindData();   
+            bindData();
+            user = usuarios;
+            lblNombre.Content = usuarios.nombre_miembro + " " + usuarios.apellido_miembro;
         }
 
+        
         private void bindData()
         {
             libros = data.getAllLibros();
@@ -74,21 +77,21 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
 
         private void btnUsuarios_Click(object sender, RoutedEventArgs e)
         {
-            BibliotecarioUsers bibliotecarioUsers = new BibliotecarioUsers();
+            BibliotecarioUsers bibliotecarioUsers = new BibliotecarioUsers(user);
             bibliotecarioUsers.Show();
             this.Close();
         }
 
         private void btnPrestamos_Click(object sender, RoutedEventArgs e)
         {
-            BibliotecarioPrestamo bibliotecarioPrestamo = new BibliotecarioPrestamo();
+            BibliotecarioPrestamo bibliotecarioPrestamo = new BibliotecarioPrestamo(user);
             bibliotecarioPrestamo.Show();
             this.Close();
         }
 
         private void btnDevolucion_Click(object sender, RoutedEventArgs e)
         {
-            BibliotecarioDevolucion bibliotecarioDevolucion = new BibliotecarioDevolucion();
+            BibliotecarioDevolucion bibliotecarioDevolucion = new BibliotecarioDevolucion(user);
             bibliotecarioDevolucion.Show();
             this.Close();
         }

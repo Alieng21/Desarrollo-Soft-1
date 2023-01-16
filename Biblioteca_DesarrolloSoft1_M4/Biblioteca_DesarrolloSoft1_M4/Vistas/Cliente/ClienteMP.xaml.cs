@@ -24,38 +24,20 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.Cliente
     {
         DataDAO data = new DataDAO();
         List<Prestamos> prestamos = new List<Prestamos>();
-        public ClienteMP()
+        Usuarios usuarios= new Usuarios();
+
+        public ClienteMP(Usuarios user)
         {
             InitializeComponent();
+            usuarios = user;
+            bindData();
+            lblNombre.Content = user.nombre_miembro + " " + user.apellido_miembro;
         }
 
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        public void bindData()
         {
-            try
-            {
-                string id = txtid.Text;
-
-                if (id == null)
-                {
-                    MessageBox.Show("Debe llenar todos los campos");
-                }
-                else
-                {
-                    prestamos = data.getPrestamosByUSer(id);
-                    lvPrestamos.ItemsSource = prestamos;
-                }
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Debe llenar todos los campos");
-            }
-        }
-
-        private void btnrefresh_Click(object sender, RoutedEventArgs e)
-        {
-            txtid.Clear();
-            lvPrestamos.Items.Clear();
+            prestamos = data.getPrestamosByUSer(usuarios.identificacion_miembro);
+            lvPrestamos.ItemsSource = prestamos;
         }
 
         private void btnCerrarsesion_Click(object sender, RoutedEventArgs e)
@@ -67,7 +49,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.Cliente
 
         private void btnDevoluciones_Click(object sender, RoutedEventArgs e)
         {
-            ClienteDevoluciones clienteDevoluciones = new ClienteDevoluciones();
+            ClienteDevoluciones clienteDevoluciones = new ClienteDevoluciones(usuarios);
             clienteDevoluciones.Show();
             this.Close();
         }

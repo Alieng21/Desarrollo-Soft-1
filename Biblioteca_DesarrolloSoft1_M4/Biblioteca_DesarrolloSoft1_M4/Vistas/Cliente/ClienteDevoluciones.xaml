@@ -10,7 +10,7 @@
         <Grid>
 
 
-            <ListView Margin="154,191,32,109" x:Name="lvDevoluciones" Background="White">
+            <ListView Margin="154,137,32,109" x:Name="lvDevoluciones" Background="White">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Libro" Width="110" DisplayMemberBinding="{Binding libro}"/>
@@ -47,17 +47,8 @@
                     </TransformGroup>
                 </Border.RenderTransform>
             </Border>
-            <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
+            <Label x:Name="lblNombre" Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
             <Label Content="Devoluciones" HorizontalAlignment="Left" Height="36" Margin="154,58,0,0" VerticalAlignment="Top" Width="192" FontSize="24" FontWeight="Bold" Foreground="#FF0C316B"/>
-            <GroupBox x:Name="groupBox" HorizontalAlignment="Left" Height="66" Header="Buscar" Margin="154,120,0,0" VerticalAlignment="Top" Width="614"/>
-            <TextBox x:Name="txtid" HorizontalAlignment="Left" Margin="278,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
-            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="412,146,0,0" VerticalAlignment="Top" Width="56"  Height="22" Click="btnBuscar_Click"/>
-            <Label x:Name="label_Copy" Content="Identificacion" HorizontalAlignment="Left" Margin="190,142,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btnrefresh"  HorizontalAlignment="Left" Margin="482,146,0,0" VerticalAlignment="Top" Width="28" Height="22" Click="btnrefresh_Click">
-                <StackPanel>
-                    <Image Source="/Vistas/Imagenes/refresh.png" Height="15" Width="23" />
-                </StackPanel>
-            </Button>
             <Button x:Name="btnCerrarsesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Height="44" Margin="0,363,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Click="btnCerrarsesion_Click"/>
 
         </Grid>

@@ -55,7 +55,7 @@
             </Border>
 
             <Button x:Name="btnDevoluciones" Content="Devoluciones" HorizontalAlignment="Left" Height="44" Margin="0,179,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Click="btnDevoluciones_Click"/>
-            <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
+            <Label x:Name="lblNombre" Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
             <Label Content="ISBN" HorizontalAlignment="Left" Margin="154,113,0,0" VerticalAlignment="Top"/>
             <Label Content="Identificación" HorizontalAlignment="Left" Margin="328,113,0,0" VerticalAlignment="Top"/>
             <Label Content="Copias" HorizontalAlignment="Left" Margin="552,113,0,0" VerticalAlignment="Top"/>

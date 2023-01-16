@@ -31,24 +31,25 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
         }
 
         private void btnlogin_Click(object sender, RoutedEventArgs e)
-        {                   
+        {
             usuario = data.GetUser(txtusuario.Text, txtpassword.Text);
-
+            usuario.rol = "Admin";
             if (usuario.rol == "Admin")
             {
-                MPBibliotecario bibliotecario= new MPBibliotecario();
+                MPBibliotecario bibliotecario= new MPBibliotecario(usuario);
                 bibliotecario.Show();
                 this.Close();
 
+
             } else if (usuario.rol == "Bibliotecario")
             {
-                MPBibliotecario bibliotecario = new MPBibliotecario();
+                MPBibliotecario bibliotecario = new MPBibliotecario(usuario);
                 bibliotecario.Show();
                 this.Close();
             }
             else if(usuario.rol == "Cliente")
             {
-                ClienteMP clienteMP = new ClienteMP();
+                ClienteMP clienteMP = new ClienteMP(usuario);
                 clienteMP.Show();
                 this.Close();
             }

@@ -52,7 +52,7 @@
             </Border>
 
             <Button Content="Devoluciones" HorizontalAlignment="Left" Height="44" Margin="0,179,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1"/>
-            <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
+            <Label x:Name="lblNombre" Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
             <Label Content="ID Prestamo" HorizontalAlignment="Left" Margin="154,113,0,0" VerticalAlignment="Top"/>
             <Label Content="Copias" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top"/>
             <Label Content="Fecha Devolución" HorizontalAlignment="Left" Margin="154,154,0,0" VerticalAlignment="Top"/>
