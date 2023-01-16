@@ -49,8 +49,6 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                         user.direccion_miembro = rd2.GetString(8);
                     }
 
-                    MessageBox.Show("Bienvenido " + user.nombre_usuario + "");
-
                 }
                 else
                 {

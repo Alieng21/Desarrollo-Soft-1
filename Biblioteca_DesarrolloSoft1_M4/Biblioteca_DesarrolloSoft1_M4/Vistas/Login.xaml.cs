@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Biblioteca_DesarrolloSoft1_M4.DataAccess;
+using Biblioteca_DesarrolloSoft1_M4.Models;
+using Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario;
 
 namespace Biblioteca_DesarrolloSoft1_M4.Vistas
 {
@@ -27,8 +29,24 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
         }
 
         private void btnlogin_Click(object sender, RoutedEventArgs e)
-        {
-            data.GetUser(txtusuario.Text,txtpassword.Text);
+        {                   
+            Usuarios usuario = data.GetUser(txtusuario.Text, txtpassword.Text);
+
+            if (usuario.rol == "Admin")
+            {
+                MPBibliotecario bibliotecario= new MPBibliotecario();
+                bibliotecario.Show();
+                this.Close();
+
+
+            } else if (usuario.rol == "Bibliotecario")
+            {
+                
+            }else if(usuario.rol == "Cliente")
+            {
+
+            }
+
         }
 
         private void txtusuario_TextChanged(object sender, TextChangedEventArgs e)
