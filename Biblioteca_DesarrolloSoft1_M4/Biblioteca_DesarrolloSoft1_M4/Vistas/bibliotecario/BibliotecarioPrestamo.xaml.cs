@@ -66,5 +66,33 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
             int copias = Convert.ToInt32(txtcopias.Text);
             data.registrarPrestamo(isbn, id, fechaprestamo, fechalimite, copias);
         }
+
+        private void btnLibros_Click(object sender, RoutedEventArgs e)
+        {
+            MPBibliotecario mPBibliotecario = new MPBibliotecario();
+            mPBibliotecario.Show();
+            this.Close();
+        }
+
+        private void btnUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            BibliotecarioUsers bibliotecarioUsers = new BibliotecarioUsers();
+            bibliotecarioUsers.Show();
+            this.Close();
+        }
+
+        private void btnDevoluciones_Click(object sender, RoutedEventArgs e)
+        {
+            BibliotecarioDevolucion bibliotecarioDevolucion = new BibliotecarioDevolucion();
+            bibliotecarioDevolucion.Show();
+            this.Close();
+        }
+
+        private void btnCerrarsesion_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
     }
 }

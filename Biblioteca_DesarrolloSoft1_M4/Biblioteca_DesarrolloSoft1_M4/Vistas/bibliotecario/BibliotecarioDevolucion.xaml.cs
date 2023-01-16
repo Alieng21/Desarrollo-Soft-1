@@ -66,5 +66,33 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
 
             
         }
+
+        private void btnLibros_Click(object sender, RoutedEventArgs e)
+        {
+            MPBibliotecario mPBibliotecario = new MPBibliotecario();
+            mPBibliotecario.Show();
+            this.Close();
+        }
+
+        private void btnUsuarios_Click(object sender, RoutedEventArgs e)
+        {
+            BibliotecarioUsers bibliotecarioUsers = new BibliotecarioUsers();
+            bibliotecarioUsers.Show();
+            this.Close();
+        }
+
+        private void btnPrestamos_Click(object sender, RoutedEventArgs e)
+        {
+            BibliotecarioPrestamo bibliotecarioPrestamo = new BibliotecarioPrestamo();
+            bibliotecarioPrestamo.Show();
+            this.Close();
+        }
+
+        private void btnCerrarsesion_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
     }
 }

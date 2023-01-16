@@ -32,7 +32,7 @@
 
             <Border HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="800" Background="#FF0C316B"/>
             <Button x:Name="btnUsuarios" Content="Usuarios" HorizontalAlignment="Left" Height="44" Margin="0,93,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Foreground="White" Click="btnUsuarios_Click" />
-            <Button Content="Prestamos" HorizontalAlignment="Left" Height="44" Margin="0,136,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" Foreground="White" BorderThickness="0,1,0,1"/>
+            <Button x:Name="btnPrestamos" Content="Prestamos" Height="44" Margin="0,136,669,0" VerticalAlignment="Top" Background="#FF1D54AD" BorderBrush="#FF0C316B" Foreground="White" BorderThickness="0,1,0,1" Click="btnPrestamos_Click"/>
             <Image HorizontalAlignment="Left" Height="98" Margin="6,-53,0,0" VerticalAlignment="Top" Width="166" Source="/Vistas/Imagenes/4.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -54,7 +54,7 @@
                 </Border.RenderTransform>
             </Border>
 
-            <Button Content="Devoluciones" HorizontalAlignment="Left" Height="44" Margin="0,179,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1"/>
+            <Button x:Name="btnDevolucion" Content="Devoluciones" HorizontalAlignment="Left" Height="44" Margin="0,179,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Click="btnDevolucion_Click"/>
             <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
             <ComboBox x:Name="cbFiltro" HorizontalAlignment="Left" Margin="225,134,0,0" VerticalAlignment="Top" Width="154" Background="Black">
                 <ComboBoxItem Content="Nombre"/>
@@ -75,6 +75,7 @@
                 </StackPanel>
             </Button>
             <Label Content="Libros" HorizontalAlignment="Left" Height="36" Margin="154,58,0,0" VerticalAlignment="Top" Width="192" FontSize="24" FontWeight="Bold" Foreground="#FF0C316B"/>
+            <Button x:Name="btnCerrarsesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Height="44" Margin="0,390,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Click="btnCerrarsesion_Click" />
 
         </Grid>
 
