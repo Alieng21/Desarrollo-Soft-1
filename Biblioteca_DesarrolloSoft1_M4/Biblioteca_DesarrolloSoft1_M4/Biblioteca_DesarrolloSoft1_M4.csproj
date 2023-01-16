@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Font\password.ttf" />
+    <None Remove="Font\Poppins-Bold.ttf" />
     <None Remove="Font\Poppins.ttf" />
     <None Remove="Vistas\3.png" />
     <None Remove="Vistas\Imagenes\2.png" />
@@ -16,12 +17,16 @@
     <None Remove="Vistas\Imagenes\4.png" />
     <None Remove="Vistas\Imagenes\5.png" />
     <None Remove="Vistas\Imagenes\login.png" />
+    <None Remove="Vistas\Imagenes\refresh.png" />
     <None Remove="Vistas\Imagenes\Untitled design.png" />
     <None Remove="Vistas\Untitled design.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Font\password.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Font\Poppins-Bold.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Font\Poppins.ttf">
@@ -34,6 +39,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Vistas\Imagenes\5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Vistas\Imagenes\refresh.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Vistas\Imagenes\Untitled design.png">

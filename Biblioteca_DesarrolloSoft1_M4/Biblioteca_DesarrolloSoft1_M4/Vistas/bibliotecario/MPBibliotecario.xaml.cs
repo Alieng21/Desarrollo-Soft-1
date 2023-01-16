@@ -57,9 +57,15 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
             catch (Exception)
             {
 
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Debe llenar todos los campos");
             }
         }
 
+        private void btnrefresh_Click(object sender, RoutedEventArgs e)
+        {
+            cbFiltro.SelectedIndex = -1;
+            txtBuscar.Clear();
+            bindData(); 
+        }
     }
 }

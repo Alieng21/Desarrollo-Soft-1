@@ -126,7 +126,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                         ISBN = rd.GetString(6)
                     });
                 }
-
+                conn.Close();
                 return libros;
             }
             catch (Exception)

@@ -63,12 +63,17 @@
                 <ComboBoxItem Content="Editorial"/>
                 <ComboBoxItem Content="ISBN"/>
             </ComboBox>
-            <TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Margin="521,151,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Margin="503,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="674,148,0,0" VerticalAlignment="Top" Width="57" Click="btnBuscar_Click"/>
+            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="636,149,0,0" VerticalAlignment="Top" Width="56" Click="btnBuscar_Click"/>
 
             <Label x:Name="label" Content="Filtro" HorizontalAlignment="Left" Margin="212,148,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label_Copy" Content="Busqueda" HorizontalAlignment="Left" Margin="454,148,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy" Content="Busqueda" HorizontalAlignment="Left" Margin="436,147,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnrefresh"  HorizontalAlignment="Left" Margin="707,148,0,0" VerticalAlignment="Top" Width="27" Height="20" Click="btnrefresh_Click">
+                <StackPanel>
+                    <Image Source="/Vistas/Imagenes/refresh.png" Height="15" Width="23" />
+                </StackPanel>
+            </Button>
 
         </Grid>
 
