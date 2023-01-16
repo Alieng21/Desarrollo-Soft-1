@@ -28,10 +28,10 @@
 
             <Button Content="Libros" HorizontalAlignment="Left" Height="44" Margin="0,50,0,0" VerticalAlignment="Top" Width="131"  Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,0,0,1" Foreground="White"/>
 
-            <Button x:Name="btnLibros" Content="Libros" HorizontalAlignment="Left" Height="44" Margin="0,50,0,0" VerticalAlignment="Top" Width="131"  Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,0,0,1" Foreground="Gainsboro"/>
+            <Button x:Name="btnLibros" Content="Libros" HorizontalAlignment="Left" Height="44" Margin="0,50,0,0" VerticalAlignment="Top" Width="131"  Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,0,0,1" Foreground="Gainsboro" Click="btnLibros_Click_1"/>
 
             <Border HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="800" Background="#FF0C316B"/>
-            <Button Content="Usuarios" HorizontalAlignment="Left" Height="44" Margin="0,93,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Foreground="White" />
+            <Button x:Name="btnUsuarios" Content="Usuarios" HorizontalAlignment="Left" Height="44" Margin="0,93,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Foreground="White" Click="btnUsuarios_Click" />
             <Button Content="Prestamos" HorizontalAlignment="Left" Height="44" Margin="0,136,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" Foreground="White" BorderThickness="0,1,0,1"/>
             <Image HorizontalAlignment="Left" Height="98" Margin="6,-53,0,0" VerticalAlignment="Top" Width="166" Source="/Vistas/Imagenes/4.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
                 <Image.RenderTransform>

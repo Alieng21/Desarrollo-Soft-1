@@ -205,7 +205,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                         direccion_miembro = rd.GetString(8)
                     });
                 }
-
+                conn.Close();
                 return usuarios;
             }
             catch (Exception)

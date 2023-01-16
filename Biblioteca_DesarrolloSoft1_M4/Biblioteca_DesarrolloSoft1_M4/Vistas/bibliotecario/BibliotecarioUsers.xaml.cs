@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Biblioteca_DesarrolloSoft1_M4.DataAccess;
+using Biblioteca_DesarrolloSoft1_M4.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,18 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
     /// </summary>
     public partial class BibliotecarioUsers : Window
     {
+        DataDAO data = new DataDAO();
+        private List<Usuarios> usuarios = new List<Usuarios>();
         public BibliotecarioUsers()
         {
             InitializeComponent();
+            bindData();
+        }
+
+        private void bindData()
+        {
+            usuarios = data.getAllUsuarios();
+            lvUsers.ItemsSource = usuarios;
         }
 
         private void btnLibros_Click(object sender, RoutedEventArgs e)
@@ -29,6 +40,37 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
             MPBibliotecario mPBibliotecario = new MPBibliotecario();
             mPBibliotecario.Show();
             this.Close();
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string filtro = cbFiltro.Text;
+                string dato = txtBuscar.Text;
+
+                if (filtro == null || dato == null)
+                {
+                    MessageBox.Show("Debe llenar todos los campos");
+                }
+                else
+                {
+                    usuarios = data.getUsuariosBy(filtro, dato);
+                    lvUsers.ItemsSource = usuarios;
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Debe llenar todos los campos");
+            }
+        }
+
+        private void btnrefresh_Click(object sender, RoutedEventArgs e)
+        {
+            cbFiltro.SelectedIndex = -1;
+            txtBuscar.Clear();
+            bindData();
         }
     }
 }

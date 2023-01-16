@@ -8,7 +8,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Models
 {
     public class Miembros
     {
-        public int nombre_miembro { get; set; }
+        public string nombre_miembro { get; set; }
 
         public string apellido_miembro { get; set; }
 

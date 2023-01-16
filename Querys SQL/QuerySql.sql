@@ -106,9 +106,6 @@ create procedure Insertar_TblUsuarios
 
 go
 
-select * from TblMiembros
-
-insert into TblMiembros values(")
 
 create procedure Insertar_TblRoles
 		@rol varchar(50)
@@ -129,14 +126,6 @@ create procedure Insertar_TblPrestamos
 		update TblLibros set copias_libro = copias_libro - @copias_libro where id_libro = (select Id from Mostrar_TblLibros where ISBN = @isbn)
 go
 
-select IdUsuario from Mostrar_TblUsuario where ID = '40242319511'
-select Id from Mostrar_TblLibros where ISBN = ''
-
-select * from Mostrar_TblLibros
-
-select * from Mostrar_TblLibros
-
-exec Insertar_TblPrestamos '123455432','40242319511',1,5,GETDATE,GETDATE
 
 create procedure Insertar_TblEstados
 		@estado varchar(50)
