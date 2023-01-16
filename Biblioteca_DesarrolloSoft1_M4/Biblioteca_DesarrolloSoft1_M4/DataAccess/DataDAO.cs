@@ -39,7 +39,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                     SqlDataReader rd2 = cmd.ExecuteReader();
                     if (rd2.Read())
                     {
-                        user.nombre_usuario = rd2.GetString(1);
+                        user.nombre_miembro = rd2.GetString(1);
                         user.apellido_miembro = rd2.GetString(2);
                         user.nombre_usuario = rd2.GetString(3);
                         user.rol = rd2.GetString(4);
@@ -60,7 +60,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show("Hubo un error");
                 return user;
             }
         }

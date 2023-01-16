@@ -9,7 +9,7 @@
       Title="Registrar">
 
     <Grid Background="White">
-        <TextBox x:Name="txtusuario"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -30,7 +30,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtusuario_Copy"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0"  BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -51,7 +51,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtusuario_Copy1"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy1"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0"  BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -85,7 +85,7 @@
         </Image>
         <Label Content="Apellido" HorizontalAlignment="Left" Margin="38,170,0,0" VerticalAlignment="Top" Width="209" FontWeight="Bold" FontSize="14"/>
         <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="38,238,0,0" VerticalAlignment="Top" Width="209" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="txtusuario_Copy2"  TextAlignment="Left" HorizontalAlignment="Left" Margin="419,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy2"  TextAlignment="Left" HorizontalAlignment="Left" Margin="419,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0"  BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -106,7 +106,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtusuario_Copy3"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy3"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -128,7 +128,7 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label Content="Identificación" HorizontalAlignment="Left" Margin="419,100,0,0" VerticalAlignment="Top" Width="209" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="txtusuario_Copy4"  TextAlignment="Left" HorizontalAlignment="Left" Margin="419,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy4"  TextAlignment="Left" HorizontalAlignment="Left" Margin="419,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0"  BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -149,7 +149,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="txtusuario_Copy5"  TextAlignment="Left" HorizontalAlignment="Left" Margin="419,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy5"  TextAlignment="Left" HorizontalAlignment="Left" Margin="419,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -172,7 +172,7 @@
         </TextBox>
         <Label Content="E-mail" HorizontalAlignment="Left" Margin="419,171,0,0" VerticalAlignment="Top" Width="209" FontWeight="Bold" FontSize="14"/>
         <Label Content="Teléfono" HorizontalAlignment="Left" Margin="419,239,0,0" VerticalAlignment="Top" Width="209" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="txtusuario_Copy6"  TextAlignment="Left" HorizontalAlignment="Left" Margin="419,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy6"  TextAlignment="Left" HorizontalAlignment="Left" Margin="419,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0"  BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -194,7 +194,7 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label Content="Dirección" HorizontalAlignment="Left" Margin="419,307,0,0" VerticalAlignment="Top" Width="209" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="btnregistrar" Content="Registrarse" HorizontalAlignment="Center" Margin="0,396,0,0" VerticalAlignment="Top" Width="136" Click="btnlogin_Click" FontFamily="Arial" BorderBrush="#FFFABA26" Background="#FFFABA26" Foreground="White" Height="28" FontWeight="Medium" Padding="1,1,-3,1">
+        <Button x:Name="btnregistrar" Content="Registrarse" HorizontalAlignment="Center" Margin="0,396,0,0" VerticalAlignment="Top" Width="136" FontFamily="Arial" BorderBrush="#FFFABA26" Background="#FFFABA26" Foreground="White" Height="28" FontWeight="Medium" Padding="1,1,-3,1">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -202,7 +202,7 @@
             </Button.Resources>
         </Button>
         <Label Content="Registro"  HorizontalAlignment="Left" Margin="104,21,0,0" VerticalAlignment="Top" FontSize="40" FontWeight="Bold" Height="63" Width="224"/>
-        <TextBox x:Name="txtusuario_Copy7"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy7"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0"  BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -224,7 +224,7 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label Content="Contraseña" HorizontalAlignment="Left" Margin="38,307,0,0" VerticalAlignment="Top" Width="209" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="txtusuario_Copy8"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtusuario_Copy8"  TextAlignment="Left" HorizontalAlignment="Left" Margin="38,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0"  BorderBrush="#FFDADADA">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>
