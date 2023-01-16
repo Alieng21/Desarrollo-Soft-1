@@ -106,6 +106,10 @@ create procedure Insertar_TblUsuarios
 
 go
 
+select * from TblMiembros
+
+insert into TblMiembros values(")
+
 create procedure Insertar_TblRoles
 		@rol varchar(50)
 	as
@@ -331,7 +335,7 @@ go
 
 create view Mostrar_TblPrestamos as
 	select TblPrestamos.id_prestamo as 'Id', TblLibros.nombre_libro as 'Libro', TblLibros.ISBN as 'ISBN', TblMiembros.nombre_miembro + ' ' + 
-	TblMiembros.apellido_miembro + ' ' + TblMiembros.identificacion_miembro as 'Prestatario', TblPrestamos.copias_libro as 'Copias',
+	TblMiembros.apellido_miembro as 'Prestatario',  TblMiembros.identificacion_miembro as 'Identificacion', TblPrestamos.copias_libro as 'Copias',
 	TblPrestamos.fecha_prestamo as 'Fecha de Prestamo', TblPrestamos.fecha_limite as 'Fecha Limite de Prestamo',
 	TblEstados.estado as 'Estado de Prestamo'
 	from (TblUsuarios
@@ -344,7 +348,7 @@ go
 
 create view Mostrar_TblDevoluciones as
 	select  TblLibros.nombre_libro as 'Libro', TblLibros.ISBN, TblMiembros.nombre_miembro + ' ' + 
-	TblMiembros.apellido_miembro + ' ' + TblMiembros.identificacion_miembro as 'Prestatario', TblPrestamos.copias_libro as 'Copias',
+	TblMiembros.apellido_miembro as 'Prestatario', TblMiembros.identificacion_miembro as 'Identificacion', TblPrestamos.copias_libro as 'Copias',
 	TblDevoluciones.fecha_devolucion as 'Fecha de Devolucion'
 	from (TblUsuarios
 	INNER JOIN TblMiembros on TblUsuarios.id_miembro = TblMiembros.id_miembro),
@@ -352,4 +356,6 @@ create view Mostrar_TblDevoluciones as
 	INNER JOIN TblLibros on TblPrestamos.id_libro = TblLibros.id_libro), TblDevoluciones
 
 go
+drop view Mostrar_TblDevoluciones
+select * from Mostrar_TblDevoluciones where Identificacion = ''
 

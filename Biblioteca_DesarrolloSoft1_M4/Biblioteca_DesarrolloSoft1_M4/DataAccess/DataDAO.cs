@@ -16,7 +16,6 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
     {
         private readonly SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionstring"].ConnectionString);
 
-        //Login para el final
         public Usuarios GetUser(string username, string password)
         {
             Usuarios user = new Usuarios();
@@ -24,7 +23,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
             try
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("select * from TblUsuarios where nombre_usuario = @username and clave_usuario = @password",conn);
+                SqlCommand cmd = new SqlCommand("select * from TblUsuarios where nombre_usuario = @username and clave_usuario = @password", conn);
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);
 
@@ -33,7 +32,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 if (rd.HasRows)
                 {
                     rd.Close();
-                    cmd = new SqlCommand("select * from Mostrar_TblUsuario where usuario = @username",conn);
+                    cmd = new SqlCommand("select * from Mostrar_TblUsuario where usuario = @username", conn);
                     cmd.Parameters.AddWithValue("@username", username);
 
                     SqlDataReader rd2 = cmd.ExecuteReader();
@@ -48,8 +47,8 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                         user.telefono_miembro = rd2.GetString(7);
                         user.direccion_miembro = rd2.GetString(8);
                     }
-                  
-                    MessageBox.Show("Bienvenido "+user.nombre_usuario+"");
+
+                    MessageBox.Show("Bienvenido " + user.nombre_usuario + "");
 
                 }
                 else
@@ -287,9 +286,122 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
             }
         }
 
+        public List<Prestamos> getPrestamosByUSer(string identificacion)
+        {
+            List<Prestamos> prestamos = new List<Prestamos>();
 
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblPrestamos where Identificacion = @id", conn);
+                cmd.Parameters.AddWithValue("@id", identificacion);
 
+                SqlDataReader rd = cmd.ExecuteReader();
 
+                while (rd.Read())
+                {
+                    prestamos.Add(new Prestamos
+                    {
+                        libro = rd.GetString(1),
+                        ISBN = rd.GetString(2),
+                        prestatario = rd.GetString(3),
+                        identificacion = rd.GetString(4),
+                        copias = rd.GetInt32(5),
+                        fecha_prestamo = rd.GetDateTime(6),
+                        fecha_limite = rd.GetDateTime(7),
+                        estado = rd.GetString(8)
+                    });
+                }
+                conn.Close();
+
+                return prestamos;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong!");
+                return prestamos;
+            }
+        }
+
+        public List<Devoluciones> GetDevolucionesByUSer(string identificacion)
+        {
+            List<Devoluciones> devoluciones = new List<Devoluciones>();
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select * from Mostrar_TblDevoluciones where Identificacion = @id", conn);
+                cmd.Parameters.AddWithValue("@id", identificacion);
+
+                SqlDataReader rd = cmd.ExecuteReader();
+
+                while (rd.Read())
+                {
+                    devoluciones.Add(new Devoluciones
+                    {
+                        libro = rd.GetString(0),
+                        ISBN = rd.GetString(1),
+                        prestatario = rd.GetString(2),
+                        identificacion = rd.GetString(3),
+                        copias = rd.GetInt32(4),
+                        fecha_devolucion = rd.GetDateTime(5)
+                    });
+                }
+
+                return devoluciones;
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Something went wrong!");
+                return devoluciones;
+            }
+        }
+        public void registrarUsuarios(Miembros miembro, int rol, string username, string password)
+        {
+            try
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Insertar_TblMiembros", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre_miembro", miembro.nombre_miembro);
+                cmd.Parameters.AddWithValue("@apellido_miembro", miembro.apellido_miembro);
+                cmd.Parameters.AddWithValue("@identificacion_miembro", miembro.identificacion_miembro);
+                cmd.Parameters.AddWithValue("@email_miembro", miembro.email_miembro);
+                cmd.Parameters.AddWithValue("@telefono_miembro", miembro.telefono_miembro);
+                cmd.Parameters.AddWithValue("@direccion_miembro", miembro.direccion_miembro);
+
+                cmd.ExecuteNonQuery();
+
+                cmd = new SqlCommand("select * from TblMiembros order by id_miembro desc", conn);
+                int id_miembro = Convert.ToInt32(cmd.ExecuteScalar());
+
+                cmd = new SqlCommand("", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_miembro", id_miembro);
+                cmd.Parameters.AddWithValue("@id_rol", rol);
+                cmd.Parameters.AddWithValue("@nombre_usuario", username);
+                cmd.Parameters.AddWithValue("@clave_usuario", password);
+
+                int x = cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+                if (x == 1)
+                {
+                    MessageBox.Show("Se registro correctamente!");
+                }
+                else
+                {
+                    MessageBox.Show("Algo salio mal!");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Something went wrong!");
+            }
+        }
     }
 }
-            
+             
