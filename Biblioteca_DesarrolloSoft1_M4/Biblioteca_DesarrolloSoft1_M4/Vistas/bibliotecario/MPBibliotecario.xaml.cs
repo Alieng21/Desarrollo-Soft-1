@@ -23,11 +23,11 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
     {
         private DataDAO data = new DataDAO();
         private List<Libros> libros = new List<Libros>();
+        
         public MPBibliotecario()
         {
             InitializeComponent();
-            bindData();
-     
+            bindData();   
         }
 
         private void bindData()
@@ -65,7 +65,14 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
         {
             cbFiltro.SelectedIndex = -1;
             txtBuscar.Clear();
-            bindData(); 
+            bindData();
+        }
+
+        private void btnLibros_Click(object sender, RoutedEventArgs e)
+        {
+            MPBibliotecario mPBibliotecario = new MPBibliotecario();
+            mPBibliotecario.Show();
+            this.Close();
         }
     }
 }

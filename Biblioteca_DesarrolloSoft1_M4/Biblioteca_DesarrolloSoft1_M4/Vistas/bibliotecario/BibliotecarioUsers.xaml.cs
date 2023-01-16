@@ -10,24 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Biblioteca_DesarrolloSoft1_M4.Vistas
+namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
 {
     /// <summary>
-    /// Lógica de interacción para Registrar.xaml
+    /// Lógica de interacción para BibliotecarioUsers.xaml
     /// </summary>
-    public partial class Registrar : Page
+    public partial class BibliotecarioUsers : Window
     {
-        public Registrar()
+        public BibliotecarioUsers()
         {
             InitializeComponent();
         }
 
-        private void btnlogin_Click(object sender, RoutedEventArgs e)
+        private void btnLibros_Click(object sender, RoutedEventArgs e)
         {
-
+            MPBibliotecario mPBibliotecario = new MPBibliotecario();
+            mPBibliotecario.Show();
+            this.Close();
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿<Window x:Class="Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario.MPBibliotecario"
+﻿<Window x:Class="Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario.BibliotecarioUsers"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario"
         mc:Ignorable="d"
-        Title="MPBibliotecario" Height="450" Width="800">
+        Title="BibliotecarioUsers" Height="450" Width="800">
     <Grid>
         <Grid>
 
@@ -65,17 +65,16 @@
             </ComboBox>
             <TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Margin="503,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
-            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="636,149,0,0" VerticalAlignment="Top" Width="56" Click="btnBuscar_Click"/>
+            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="636,149,0,0" VerticalAlignment="Top" Width="56" />
 
             <Label x:Name="label" Content="Filtro" HorizontalAlignment="Left" Margin="212,148,0,0" VerticalAlignment="Top"/>
             <Label x:Name="label_Copy" Content="Busqueda" HorizontalAlignment="Left" Margin="436,147,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btnrefresh"  HorizontalAlignment="Left" Margin="707,148,0,0" VerticalAlignment="Top" Width="27" Height="20" Click="btnrefresh_Click">
+            <Button x:Name="btnrefresh"  HorizontalAlignment="Left" Margin="707,148,0,0" VerticalAlignment="Top" Width="27" Height="20">
                 <StackPanel>
                     <Image Source="/Vistas/Imagenes/refresh.png" Height="15" Width="23" />
                 </StackPanel>
             </Button>
 
         </Grid>
-
     </Grid>
 </Window>

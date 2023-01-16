@@ -23,6 +23,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
     public partial class Login : Window
     {
         readonly private DataDAO data = new DataDAO();
+        public Usuarios usuario = new Usuarios();
         public Login()
         {
             InitializeComponent();
@@ -30,13 +31,14 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
 
         private void btnlogin_Click(object sender, RoutedEventArgs e)
         {                   
-            Usuarios usuario = data.GetUser(txtusuario.Text, txtpassword.Text);
+            usuario = data.GetUser(txtusuario.Text, txtpassword.Text);
 
             if (usuario.rol == "Admin")
             {
                 MPBibliotecario bibliotecario= new MPBibliotecario();
                 bibliotecario.Show();
                 this.Close();
+
 
 
             } else if (usuario.rol == "Bibliotecario")
