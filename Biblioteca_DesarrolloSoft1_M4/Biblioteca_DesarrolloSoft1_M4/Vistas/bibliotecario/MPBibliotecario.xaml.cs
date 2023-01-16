@@ -41,7 +41,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
         {
             try
             {
-                string filtro = cbFiltro.SelectedValue.ToString();
+                string filtro = cbFiltro.Text;
                 string dato = txtBuscar.Text;
 
                 if (filtro == null || dato == null)
@@ -51,12 +51,13 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
                 else
                 {
                     libros = data.getLibrosBy(filtro, dato);
+                    lvLibros.ItemsSource = libros;
                 }
             }
             catch (Exception)
             {
 
-                MessageBox.Show("Debe llenar todos los campos");
+                MessageBox.Show(e.ToString());
             }
         }
 
