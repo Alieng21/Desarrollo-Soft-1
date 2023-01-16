@@ -10,8 +10,5 @@
         <Style x:Key="poppins">
             <Setter Property="TextElement.FontFamily" Value="/Font/#Poppins"/>
         </Style>
-        <Style x:Key="poppinsbold">
-            <Setter Property="TextElement.FontFamily" Value="/Font/#Bold"/>
-        </Style>
     </Application.Resources>
 </Application>
