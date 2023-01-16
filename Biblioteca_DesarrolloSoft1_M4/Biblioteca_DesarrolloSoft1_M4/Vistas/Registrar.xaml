@@ -259,6 +259,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
+        <Label Content="Volver" HorizontalAlignment="Left" Margin="38,397,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>
