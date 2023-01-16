@@ -30,7 +30,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
 
         private void bindLibros()
         {
-            List<Libros> libros = data.getLibrosBy("Nombre","Pepito");
+            List<Libros> libros = data.getAllLibros();
 
             lvLibros.ItemsSource = libros;
         }

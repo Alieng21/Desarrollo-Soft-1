@@ -16,6 +16,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
     {
         private readonly SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connectionstring"].ConnectionString);
 
+        
         public Usuarios GetUser(string username, string password)
         {
             Usuarios user = new Usuarios();
@@ -375,7 +376,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 cmd = new SqlCommand("select * from TblMiembros order by id_miembro desc", conn);
                 int id_miembro = Convert.ToInt32(cmd.ExecuteScalar());
 
-                cmd = new SqlCommand("", conn);
+                cmd = new SqlCommand("Insertar_TblUsuarios", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_miembro", id_miembro);
                 cmd.Parameters.AddWithValue("@id_rol", rol);
