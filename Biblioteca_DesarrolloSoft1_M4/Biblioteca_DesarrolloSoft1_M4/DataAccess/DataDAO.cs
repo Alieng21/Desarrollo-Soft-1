@@ -301,6 +301,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 {
                     prestamos.Add(new Prestamos
                     {
+                        id = rd.GetInt32(0),
                         libro = rd.GetString(1),
                         ISBN = rd.GetString(2),
                         prestatario = rd.GetString(3),

@@ -10,15 +10,15 @@
         <Grid>
 
 
-            <ListView Margin="154,264,32,36" x:Name="lvLibros" Background="White">
+            <ListView Margin="154,264,32,36" x:Name="lvDevoluciones" Background="White">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Nombre" Width="110" DisplayMemberBinding="{Binding nombre_libro}"/>
-                        <GridViewColumn Header="Categoria" Width="110" DisplayMemberBinding="{Binding categoria_libro}"/>
-                        <GridViewColumn Header="Autor" Width="110" DisplayMemberBinding="{Binding autor_libro}"/>
-                        <GridViewColumn Header="Editorial" Width="110" DisplayMemberBinding="{Binding editorial_libro}"/>
-                        <GridViewColumn Header="Copias" Width="70" DisplayMemberBinding="{Binding copias_libro}"/>
+                        <GridViewColumn Header="Libro" Width="110" DisplayMemberBinding="{Binding libro}"/>
                         <GridViewColumn Header="ISBN" Width="110" DisplayMemberBinding="{Binding ISBN}"/>
+                        <GridViewColumn Header="Prestatario" Width="110" DisplayMemberBinding="{Binding prestatario}"/>
+                        <GridViewColumn Header="Identificacion" Width="110" DisplayMemberBinding="{Binding identificacion}"/>
+                        <GridViewColumn Header="Copias" Width="70" DisplayMemberBinding="{Binding copias}"/>
+                        <GridViewColumn Header="Fecha" Width="110" DisplayMemberBinding="{Binding fecha_devolucion}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -56,24 +56,16 @@
             <Label Content="ID Prestamo" HorizontalAlignment="Left" Margin="154,113,0,0" VerticalAlignment="Top"/>
             <Label Content="Copias" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top"/>
             <Label Content="Fecha Devolución" HorizontalAlignment="Left" Margin="154,154,0,0" VerticalAlignment="Top"/>
-            <DatePicker HorizontalAlignment="Left" Margin="262,156,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Margin="234,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
-            <TextBox x:Name="txtBuscar_Copy1" HorizontalAlignment="Left" Margin="428,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
+            <DatePicker x:Name="dpFechadevolucion" HorizontalAlignment="Left" Margin="262,156,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtidprestamos" HorizontalAlignment="Left" Margin="234,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
+            <TextBox x:Name="txtcopias" HorizontalAlignment="Left" Margin="428,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
             <Label Content="Devoluciones" HorizontalAlignment="Left" Height="36" Margin="154,58,0,0" VerticalAlignment="Top" Width="192" FontSize="24" FontWeight="Bold" Foreground="#FF0C316B"/>
-            <Button Content="Registrar" HorizontalAlignment="Left" Height="24" Margin="434,156,0,0" VerticalAlignment="Top" Width="76"/>
+            <Button x:Name="btnregistrardev" Content="Registrar" HorizontalAlignment="Left" Height="24" Margin="434,156,0,0" VerticalAlignment="Top" Width="76" Click="Button_Click"/>
             <GroupBox x:Name="groupBox" HorizontalAlignment="Left" Height="66" Header="Buscar" Margin="154,193,0,0" VerticalAlignment="Top" Width="614"/>
-            <ComboBox x:Name="cbFiltro" HorizontalAlignment="Left" Margin="236,217,0,0" VerticalAlignment="Top" Width="154" Background="Black">
-                <ComboBoxItem Content="Nombre"/>
-                <ComboBoxItem Content="Categoria"/>
-                <ComboBoxItem Content="Autor"/>
-                <ComboBoxItem Content="Editorial"/>
-                <ComboBoxItem Content="ISBN"/>
-            </ComboBox>
-            <TextBox x:Name="txtBuscar_Copy2" HorizontalAlignment="Left" Margin="470,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
-            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="604,217,0,0" VerticalAlignment="Top" Width="56"  Height="22"/>
-            <Label x:Name="label" Content="Filtro" HorizontalAlignment="Left" Margin="180,215,0,0" VerticalAlignment="Top" Height="26"/>
-            <Label x:Name="label_Copy" Content="Busqueda" HorizontalAlignment="Left" Margin="403,215,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btnrefresh"  HorizontalAlignment="Left" Margin="674,217,0,0" VerticalAlignment="Top" Width="28" Height="22">
+            <TextBox x:Name="txtid" HorizontalAlignment="Left" Margin="278,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
+            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="412,219,0,0" VerticalAlignment="Top" Width="56"  Height="22" Click="btnBuscar_Click"/>
+            <Label x:Name="label_Copy" Content="Identificacion" HorizontalAlignment="Left" Margin="190,215,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnrefresh"  HorizontalAlignment="Left" Margin="482,219,0,0" VerticalAlignment="Top" Width="28" Height="22" Click="btnrefresh_Click">
                 <StackPanel>
                     <Image Source="/Vistas/Imagenes/refresh.png" Height="15" Width="23" />
                 </StackPanel>
