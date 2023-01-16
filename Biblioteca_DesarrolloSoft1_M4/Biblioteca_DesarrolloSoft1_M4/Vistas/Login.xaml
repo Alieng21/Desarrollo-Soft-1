@@ -92,7 +92,7 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label Content="¿No tienes una cuenta?" HorizontalAlignment="Left" Margin="31,324,0,0" VerticalAlignment="Top"/>
-        <Label Content="Registrate Aquí" HorizontalAlignment="Left" Margin="159,324,0,0" VerticalAlignment="Top" Foreground="#FF2B6CC2"/>
+        <Label Content="Registrate Aquí" HorizontalAlignment="Left" Margin="159,324,0,0" VerticalAlignment="Top" Foreground="#FF2B6CC2" MouseLeftButtonDown="Label_MouseLeftButtonDown" />
 
     </Grid>
 </Window>

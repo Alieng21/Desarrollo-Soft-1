@@ -12,7 +12,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Biblioteca_DesarrolloSoft1_M4.Vistas
@@ -20,18 +19,13 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
     /// <summary>
     /// Lógica de interacción para Registrar.xaml
     /// </summary>
-    public partial class Registrar : Page
+    public partial class Registrar : Window
     {
         DataDAO data = new DataDAO();
-        private Miembros miembro = new Miembros();
+        Miembros miembro = new Miembros();
         public Registrar()
         {
             InitializeComponent();
-        }
-
-        private void btnlogin_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void btnregistrar_Click(object sender, RoutedEventArgs e)
@@ -47,6 +41,13 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
             string password = txtpassword.Text;
 
             data.registrarUsuarios(miembro, 3, username, password);
+        }
+
+        private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
     }
 }

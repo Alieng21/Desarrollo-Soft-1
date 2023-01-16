@@ -141,7 +141,7 @@ create procedure Insertar_TblDevoluciones
 	as
 		insert into TblDevoluciones values(@id_prestamo,@fecha_devolucion)
 		update TblLibros set copias_libro = copias_libro + @copias_libro where id_libro = (select id_libro from TblPrestamos where id_prestamo = @id_prestamo)
-		Update TblPrestamos set id_estado = 3
+		Update TblPrestamos set id_estado = 3 where id_prestamo = @id_prestamo
 go
 
 create procedure Insertar_TblCategorias

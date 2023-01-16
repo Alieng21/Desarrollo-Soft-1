@@ -70,8 +70,7 @@
                     <Image Source="/Vistas/Imagenes/refresh.png" Height="15" Width="23" />
                 </StackPanel>
             </Button>
-            <Button x:Name="btnCerrarsesion" Content="Cerrar Sesion" Height="44" Margin="0,390,669,0" VerticalAlignment="Top" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Click="btnCerrarsesion_Click" />
-
+            <Button x:Name="btnCerrarsesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Height="44" Margin="0,363,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Click="btnCerrarsesion_Click"/>
 
         </Grid>
 

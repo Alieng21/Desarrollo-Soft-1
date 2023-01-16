@@ -10,20 +10,21 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
+namespace Biblioteca_DesarrolloSoft1_M4.Vistas.Cliente
 {
     /// <summary>
-    /// Lógica de interacción para BibliotecarioPrestamo.xaml
+    /// Lógica de interacción para ClienteMP.xaml
     /// </summary>
-    public partial class BibliotecarioPrestamo : Window
+    public partial class ClienteMP : Window
     {
         DataDAO data = new DataDAO();
         List<Prestamos> prestamos = new List<Prestamos>();
-        public BibliotecarioPrestamo()
+        public ClienteMP()
         {
             InitializeComponent();
         }
@@ -54,38 +55,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
         private void btnrefresh_Click(object sender, RoutedEventArgs e)
         {
             txtid.Clear();
-            lvPrestamos.ItemsSource = null;
-        }
-
-        private void btnregistrar_Click(object sender, RoutedEventArgs e)
-        {
-            string isbn = txtisbn.Text;
-            string id = txtidentificacion.Text;
-            DateTime fechaprestamo = Convert.ToDateTime(dpfechaprestamo.Text);
-            DateTime fechalimite = Convert.ToDateTime(dpfechalimite.Text);
-            int copias = Convert.ToInt32(txtcopias.Text);
-            data.registrarPrestamo(isbn, id, fechaprestamo, fechalimite, copias);
-        }
-
-        private void btnLibros_Click(object sender, RoutedEventArgs e)
-        {
-            MPBibliotecario mPBibliotecario = new MPBibliotecario();
-            mPBibliotecario.Show();
-            this.Close();
-        }
-
-        private void btnUsuarios_Click(object sender, RoutedEventArgs e)
-        {
-            BibliotecarioUsers bibliotecarioUsers = new BibliotecarioUsers();
-            bibliotecarioUsers.Show();
-            this.Close();
-        }
-
-        private void btnDevoluciones_Click(object sender, RoutedEventArgs e)
-        {
-            BibliotecarioDevolucion bibliotecarioDevolucion = new BibliotecarioDevolucion();
-            bibliotecarioDevolucion.Show();
-            this.Close();
+            lvPrestamos.Items.Clear();
         }
 
         private void btnCerrarsesion_Click(object sender, RoutedEventArgs e)
@@ -95,9 +65,11 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
             this.Close();
         }
 
-        private void btnPrestamos_Click(object sender, RoutedEventArgs e)
+        private void btnDevoluciones_Click(object sender, RoutedEventArgs e)
         {
-
+            ClienteDevoluciones clienteDevoluciones = new ClienteDevoluciones();
+            clienteDevoluciones.Show();
+            this.Close();
         }
     }
 }

@@ -60,7 +60,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
             }
             catch (Exception e)
             {
-                MessageBox.Show("Hubo un error");
+                MessageBox.Show("Hubo un error" + e.ToString());
                 return user;
             }
         }
@@ -277,10 +277,10 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
                 conn.Close();
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                MessageBox.Show("Hubo un error!");
+                MessageBox.Show("Hubo un error!" + e.ToString());
 
             }
         }

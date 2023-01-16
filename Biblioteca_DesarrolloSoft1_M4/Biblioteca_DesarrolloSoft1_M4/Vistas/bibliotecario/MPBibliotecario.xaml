@@ -32,7 +32,7 @@
 
             <Border HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="800" Background="#FF0C316B"/>
             <Button x:Name="btnUsuarios" Content="Usuarios" HorizontalAlignment="Left" Height="44" Margin="0,93,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Foreground="White" Click="btnUsuarios_Click" />
-            <Button x:Name="btnPrestamos" Content="Prestamos" Height="44" Margin="0,136,669,0" VerticalAlignment="Top" Background="#FF1D54AD" BorderBrush="#FF0C316B" Foreground="White" BorderThickness="0,1,0,1" Click="btnPrestamos_Click"/>
+            <Button x:Name="btnPrestamos" Content="Prestamos" HorizontalAlignment="Left" Height="44" Margin="0,136,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" BorderBrush="#FF0C316B" Foreground="White" BorderThickness="0,1,0,1" Click="btnPrestamos_Click" />
             <Image HorizontalAlignment="Left" Height="98" Margin="6,-53,0,0" VerticalAlignment="Top" Width="166" Source="/Vistas/Imagenes/4.png" RenderTransformOrigin="0.5,0.5" Stretch="UniformToFill">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -75,7 +75,7 @@
                 </StackPanel>
             </Button>
             <Label Content="Libros" HorizontalAlignment="Left" Height="36" Margin="154,58,0,0" VerticalAlignment="Top" Width="192" FontSize="24" FontWeight="Bold" Foreground="#FF0C316B"/>
-            <Button x:Name="btnCerrarsesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Height="44" Margin="0,390,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Click="btnCerrarsesion_Click" />
+            <Button x:Name="btnCerrarsesion" Content="Cerrar Sesion" HorizontalAlignment="Left" Height="44" Margin="0,363,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1" Click="btnCerrarsesion_Click"/>
 
         </Grid>
 

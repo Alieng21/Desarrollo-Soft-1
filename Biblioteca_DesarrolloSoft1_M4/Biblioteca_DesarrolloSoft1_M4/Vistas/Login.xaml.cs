@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Biblioteca_DesarrolloSoft1_M4.DataAccess;
 using Biblioteca_DesarrolloSoft1_M4.Models;
 using Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario;
+using Biblioteca_DesarrolloSoft1_M4.Vistas.Cliente;
 
 namespace Biblioteca_DesarrolloSoft1_M4.Vistas
 {
@@ -39,14 +40,17 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
                 bibliotecario.Show();
                 this.Close();
 
-
-
             } else if (usuario.rol == "Bibliotecario")
             {
-                
-            }else if(usuario.rol == "Cliente")
+                MPBibliotecario bibliotecario = new MPBibliotecario();
+                bibliotecario.Show();
+                this.Close();
+            }
+            else if(usuario.rol == "Cliente")
             {
-
+                ClienteMP clienteMP = new ClienteMP();
+                clienteMP.Show();
+                this.Close();
             }
 
         }
@@ -54,6 +58,13 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas
         private void txtusuario_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Registrar registrar = new Registrar();
+            registrar.Show();
+            this.Close();
         }
     }
 }
