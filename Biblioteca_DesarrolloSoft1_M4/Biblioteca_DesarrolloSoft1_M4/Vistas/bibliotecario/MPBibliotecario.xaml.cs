@@ -22,16 +22,43 @@ namespace Biblioteca_DesarrolloSoft1_M4.Vistas.bibliotecario
     public partial class MPBibliotecario : Window
     {
         private DataDAO data = new DataDAO();
+        private List<Libros> libros = new List<Libros>();
         public MPBibliotecario()
         {
             InitializeComponent();
             bindData();
+     
         }
 
         private void bindData()
         {
-            List <Libros> libros = data.getAllLibros();
+            libros = data.getAllLibros();
             lvLibros.ItemsSource = libros;
         }
+
+    
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string filtro = cbFiltro.SelectedValue.ToString();
+                string dato = txtBuscar.Text;
+
+                if (filtro == null || dato == null)
+                {
+                    MessageBox.Show("Debe llenar todos los campos");
+                }
+                else
+                {
+                    libros = data.getLibrosBy(filtro, dato);
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Debe llenar todos los campos");
+            }
+        }
+
     }
 }

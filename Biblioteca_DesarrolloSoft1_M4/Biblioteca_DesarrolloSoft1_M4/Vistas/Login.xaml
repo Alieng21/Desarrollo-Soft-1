@@ -20,7 +20,21 @@
             </Button.Resources>
         </Button>
 
-        <TextBox x:Name="txtpassword" HorizontalAlignment="Left" Margin="38,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+        <TextBox x:Name="txtpassword" HorizontalAlignment="Left" Style="{StaticResource password}" Margin="38,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" Height="30" RenderTransformOrigin="0.5,0.5" BorderThickness="0,0,0,0" TextChanged="txtusuario_TextChanged" BorderBrush="#FFDADADA">
+            <TextBox.InputBindings>
+                <!--Disable CTRL+C (COPY) -->
+                <KeyBinding Command="ApplicationCommands.NotACommand"
+            Key="C"
+            Modifiers="Control" />
+                <!--Disable CTRL+X (CUT) -->
+                <KeyBinding Command="ApplicationCommands.NotACommand"
+            Key="X"
+            Modifiers="Control" />
+            </TextBox.InputBindings>
+            <TextBox.ContextMenu>
+                <!--Hide context menu where you could copy/cut as well -->
+                <ContextMenu Visibility="Collapsed" />
+            </TextBox.ContextMenu>
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="10"/>

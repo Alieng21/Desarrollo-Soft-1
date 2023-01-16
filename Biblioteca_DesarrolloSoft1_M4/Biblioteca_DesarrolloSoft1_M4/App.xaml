@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:Biblioteca_DesarrolloSoft1_M4"
              StartupUri="Vistas/Login.xaml">
     <Application.Resources>
-         
+        <Style x:Key="password" >
+            <Setter Property="TextElement.FontFamily" Value="/Font/#password"/>
+        </Style>
+        <Style x:Key="poppins">
+            <Setter Property="TextElement.FontFamily" Value="/Font/#Poppins"/>
+        </Style>
     </Application.Resources>
 </Application>

@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Font\password.ttf" />
+    <None Remove="Font\Poppins.ttf" />
     <None Remove="Vistas\3.png" />
     <None Remove="Vistas\Imagenes\2.png" />
     <None Remove="Vistas\Imagenes\3.png" />
@@ -19,6 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Font\password.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Font\Poppins.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Vistas\Imagenes\2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -48,6 +56,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Update="Vistas\Imagenes\1.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
