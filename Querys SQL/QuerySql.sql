@@ -125,7 +125,7 @@ create procedure Insertar_TblPrestamos
 		insert into TblPrestamos values((select Id from Mostrar_TblLibros where ISBN = @isbn),(select IdUsuario from Mostrar_TblUsuario where ID = @identificacion),@id_estado,@copias_libro,@fecha_prestamo,@fecha_limite)
 		update TblLibros set copias_libro = copias_libro - @copias_libro where id_libro = (select Id from Mostrar_TblLibros where ISBN = @isbn)
 go
-
+ 
 
 create procedure Insertar_TblEstados
 		@estado varchar(50)
@@ -141,6 +141,7 @@ create procedure Insertar_TblDevoluciones
 	as
 		insert into TblDevoluciones values(@id_prestamo,@fecha_devolucion)
 		update TblLibros set copias_libro = copias_libro + @copias_libro where id_libro = (select id_libro from TblPrestamos where id_prestamo = @id_prestamo)
+		Update TblPrestamos set id_estado = 3
 go
 
 create procedure Insertar_TblCategorias
@@ -227,7 +228,7 @@ create procedure Editar_TblDevoluciones
 		@id_prestamo int,
 		@fecha_devolucion datetime
 	as
-		update TblDevoluciones set id_prestamo = @id_prestamo, fecha_devolucion = @fecha_devolucion
+		update TblDevoluciones set  fecha_devolucion = @fecha_devolucion where id_devolucion = @id_devolucion
 
 go
 
@@ -235,7 +236,7 @@ create procedure Editar_TblCategorias
 		@id_categoria int,
 		@categoria varchar(50)
 	as
-		update TblCategorias set id_categoria = @id_categoria, categoria = @categoria
+		update TblCategorias set categoria = @categoria where id_categoria = @id_categoria
 
 go
 
@@ -345,6 +346,5 @@ create view Mostrar_TblDevoluciones as
 	INNER JOIN TblLibros on TblPrestamos.id_libro = TblLibros.id_libro), TblDevoluciones
 
 go
-drop view Mostrar_TblDevoluciones
-select * from Mostrar_TblDevoluciones where Identificacion = ''
+
 

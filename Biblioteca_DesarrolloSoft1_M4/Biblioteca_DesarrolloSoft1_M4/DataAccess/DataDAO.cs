@@ -264,7 +264,7 @@ namespace Biblioteca_DesarrolloSoft1_M4.DataAccess
 
                 int x = Convert.ToInt32(cmd.ExecuteNonQuery());
 
-                if (x == 2)
+                if (x == 3)
                 {
                     MessageBox.Show("Se ejecuto correctamente!");
                 }
