@@ -10,10 +10,10 @@
         <Grid>
 
 
-            <GroupBox x:Name="groupBox" HorizontalAlignment="Left" Height="66" Header="Buscar" Margin="164,76,0,0" VerticalAlignment="Top" Width="584"/>
+            <GroupBox x:Name="groupBox" HorizontalAlignment="Left" Height="66" Header="Buscar" Margin="154,107,0,0" VerticalAlignment="Top" Width="614"/>
 
 
-            <ListView Margin="154,154,32,56" x:Name="lvLibros" Background="White">
+            <ListView Margin="154,192,32,38" x:Name="lvLibros" Background="White">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Nombre" Width="110" DisplayMemberBinding="{Binding nombre_libro}"/>
@@ -56,24 +56,25 @@
 
             <Button Content="Devoluciones" HorizontalAlignment="Left" Height="44" Margin="0,179,0,0" VerticalAlignment="Top" Width="131" Background="#FF1D54AD" Foreground="White" BorderBrush="#FF0C316B" BorderThickness="0,1,0,1"/>
             <Label Content="Nombre de Usuario" HorizontalAlignment="Left" Margin="595,12,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Right" Width="158" Foreground="White"/>
-            <ComboBox x:Name="cbFiltro" HorizontalAlignment="Left" Margin="246,100,0,0" VerticalAlignment="Top" Width="154" Background="Black">
+            <ComboBox x:Name="cbFiltro" HorizontalAlignment="Left" Margin="225,134,0,0" VerticalAlignment="Top" Width="154" Background="Black">
                 <ComboBoxItem Content="Nombre"/>
                 <ComboBoxItem Content="Categoria"/>
                 <ComboBoxItem Content="Autor"/>
                 <ComboBoxItem Content="Editorial"/>
                 <ComboBoxItem Content="ISBN"/>
             </ComboBox>
-            <TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Margin="480,104,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtBuscar" HorizontalAlignment="Left" Margin="467,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="22"/>
 
-            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="614,102,0,0" VerticalAlignment="Top" Width="56" Click="btnBuscar_Click"/>
+            <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="612,134,0,0" VerticalAlignment="Top" Width="56" Click="btnBuscar_Click" Height="22"/>
 
-            <Label x:Name="label" Content="Filtro" HorizontalAlignment="Left" Margin="190,102,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label_Copy" Content="Busqueda" HorizontalAlignment="Left" Margin="414,100,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btnrefresh"  HorizontalAlignment="Left" Margin="684,102,0,0" VerticalAlignment="Top" Width="28" Height="20" Click="btnrefresh_Click">
+            <Label x:Name="label" Content="Filtro" HorizontalAlignment="Left" Margin="183,132,0,0" VerticalAlignment="Top" Height="26"/>
+            <Label x:Name="label_Copy" Content="Busqueda" HorizontalAlignment="Left" Margin="400,132,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnrefresh"  HorizontalAlignment="Left" Margin="690,134,0,0" VerticalAlignment="Top" Width="28" Height="22" Click="btnrefresh_Click">
                 <StackPanel>
                     <Image Source="/Vistas/Imagenes/refresh.png" Height="15" Width="23" />
                 </StackPanel>
             </Button>
+            <Label Content="Libros" HorizontalAlignment="Left" Height="36" Margin="154,58,0,0" VerticalAlignment="Top" Width="192" FontSize="24" FontWeight="Bold" Foreground="#FF0C316B"/>
 
         </Grid>
 
